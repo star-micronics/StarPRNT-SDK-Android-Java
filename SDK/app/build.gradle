@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.StarMicronics.StarIOSDK"
+
+        minSdkVersion 21
+        targetSdkVersion 29
+
+        versionCode 45
+        versionName "5.13.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.starmicronics:stario:2.8.0'
+    implementation 'com.starmicronics:starioextension:1.14.0'
+    implementation 'com.starmicronics:smcloudservices:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+}
