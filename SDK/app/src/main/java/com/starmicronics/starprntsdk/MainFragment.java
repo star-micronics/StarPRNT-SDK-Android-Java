@@ -1,8 +1,11 @@
 package com.starmicronics.starprntsdk;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import android.view.MenuItem;
 import android.view.View;
@@ -69,7 +72,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         super.onItemClick(parent, view, position, id);
 
-        Intent intent = new Intent(getActivity(), CommonActivity.class);
+        final Intent intent = new Intent(getActivity(), CommonActivity.class);
 
         switch (position) {
             case 1: {   // Tapped Destination Device row
@@ -131,7 +134,37 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 12: {   // Tapped CashDrawer row
+            case 11: {   // Tapped AutoSwitch Interface row
+                final String[] items = {"StarIO Sample", "StarIoExtManager Sample"};
+                new AlertDialog.Builder(getActivity())
+                        .setTitle("Select Sample")
+                        .setItems(items, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int index) {
+                                switch (index) {
+                                    default:
+                                    case 0:
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_auto_switch_interface);
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "AutoSwitch Interface");
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
+                                        break;
+
+                                    case 1:
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_auto_switch_interface_ext);
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "AutoSwitch Interface Ext");
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
+                                        intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_RELOAD_BUTTON, true);
+                                        break;
+                                }
+
+                                startActivity(intent);
+
+                            }
+                        })
+                        .show();
+                break;
+            }
+            case 13: {   // Tapped CashDrawer row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_cash_drawer);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Cash Drawer");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -139,7 +172,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 13: {   // Tapped Barcode Reader row
+            case 14: {   // Tapped Barcode Reader row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_barcode_reader_ext);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Barcode Reader Ext");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -148,7 +181,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 14: {   // Tapped Display row
+            case 15: {   // Tapped Display row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_display);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Display");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -156,7 +189,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 15: {   // Tapped Melody Speaker row
+            case 16: {   // Tapped Melody Speaker row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_melody_speaker);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Melody Speaker");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -164,12 +197,12 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 17: {   // Tapped Combination row
+            case 18: {   // Tapped Combination row
                 CombinationLanguageSelectDialogFragment dialog = CombinationLanguageSelectDialogFragment.newInstance(MPOP_COMBINATION_LANG_SELECT_DIALOG);
                 dialog.show(getChildFragmentManager());
                 break;
             }
-            case 19: {   // Tapped API row
+            case 20: {   // Tapped API row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_api);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "API");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -177,12 +210,12 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 21: {   // Tapped AllReceipts row
+            case 22: {   // Tapped AllReceipts row
                 AllReceiptLanguageSelectDialogFragment dialog = AllReceiptLanguageSelectDialogFragment.newInstance(ALL_RECEIPT_LANG_SELECT_DIALOG);
                 dialog.show(getChildFragmentManager());
                 break;
             }
-            case 23: {   // Tapped Device Status row (Device Status/Firmware Information)
+            case 24: {   // Tapped Device Status row (Device Status/Firmware Information)
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_device_status);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Device Status");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -191,12 +224,12 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 24: {   // Tapped Device Status row (Product Serial Number)
+            case 25: {   // Tapped Device Status row (Product Serial Number)
                 SerialNumberDialogFragment dialog = SerialNumberDialogFragment.newInstance(SERIAL_NUMBER_DIALOG);
                 dialog.show(getChildFragmentManager());
                 break;
             }
-            case 26: {   // Tapped Bluetooth Setting row
+            case 27: {   // Tapped Bluetooth Setting row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_bluetooth_setting);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Bluetooth Setting");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -205,7 +238,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 27: {   // Tapped USB Serial Number row
+            case 28: {   // Tapped USB Serial Number row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_usb_serial_number_setting);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "USB Serial Number");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -213,7 +246,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 29: {   // Tapped Library Version row
+            case 30: {   // Tapped Library Version row
                 CommonAlertDialogFragment dialog = CommonAlertDialogFragment.newInstance("");
                 dialog.setTitle("Library Version");
                 dialog.setMessage(
@@ -226,6 +259,8 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
             }
         }
     }
+
+
 
     @Override
     public void onDialogResult(String tag, Intent data) {
@@ -360,6 +395,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
         addMenu("LED Sample",                 isDeviceSelected && ModelCapability.canUseLed(modelIndex));
         addMenu("Print Re-Direction Sample",  isDeviceSelected);
         addMenu("Hold Print Sample",          isDeviceSelected && ModelCapability.canUsePaperPresentStatus(modelIndex));
+        addMenu("AutoSwitch Interface Sample",      isDeviceSelected && ModelCapability.canUseAutoSwitchInterface(modelIndex));
 
         addTitle("Peripheral");
         addMenu("Cash Drawer Sample",         isDeviceSelected && ModelCapability.canUseCashDrawer(modelIndex));

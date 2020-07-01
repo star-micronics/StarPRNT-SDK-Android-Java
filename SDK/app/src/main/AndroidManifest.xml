@@ -23,12 +23,9 @@
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait">
 
-            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/device_filter" />
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
         </activity>
 
@@ -40,6 +37,15 @@
         <activity
             android:name=".CommonActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".UsbAttachedActivity">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+
+            <meta-data android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" android:resource="@xml/device_filter" />
+        </activity>
 
     </application>
 

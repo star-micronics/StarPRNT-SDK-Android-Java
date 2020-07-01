@@ -3,8 +3,10 @@ package com.starmicronics.starprntsdk;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+
 import androidx.core.util.Pair;
 
+import com.starmicronics.starioextension.StarIoExtManager;
 import com.starmicronics.starprntsdk.Communication.CommunicationResult;
 import com.starmicronics.starprntsdk.Communication.Result;
 
@@ -88,6 +90,10 @@ public class Communication {
         void onStatus(Communication.PresenterStatus presenterStatus, StarPrinterStatus status);
     }
 
+    interface AutoInterfaceSelectCallback {
+        void onStatus(String portName, CommunicationResult communicationResult);
+    }
+
     public static void sendCommands(Object lock, byte[] commands, StarIOPort port, int endCheckedBlockTimeout, SendCallback callback) {
         SendCommandThread thread = new SendCommandThread(lock, commands, port, endCheckedBlockTimeout, callback);
         thread.start();
@@ -155,6 +161,16 @@ public class Communication {
 
     public static void initializeUsbSerialNumber(Object lock, boolean enable, String portName, String portSettings, int timeout, Context context, SendCallback callback) {
         InitializeUsbSerialNumberThread thread = new InitializeUsbSerialNumberThread(lock, enable, portName, portSettings, timeout, context, callback);
+        thread.start();
+    }
+
+    public static void sendCommandsWithAutoInterfaceSelect(Object lock, byte[] commands, String portSettings, int timeout, int endCheckedBlockTimeout, Context context, AutoInterfaceSelectCallback callback) {
+        SendCommandWithAutoInterfaceSelectThread thread = new SendCommandWithAutoInterfaceSelectThread(lock, commands, portSettings, timeout, endCheckedBlockTimeout, context, callback);
+        thread.start();
+    }
+
+    public static void sendCommandsWithAutoInterfaceSelectExt(byte[] commands, StarIoExtManager starIoExtManager, int endCheckedBlockTimeout, AutoInterfaceSelectCallback callback) {
+        SendCommandWithAutoInterfaceSelectExtThread thread = new SendCommandWithAutoInterfaceSelectExtThread(commands, starIoExtManager, endCheckedBlockTimeout, callback);
         thread.start();
     }
 
@@ -1565,3 +1581,178 @@ class InitializeUsbSerialNumberThread extends Thread {
         }
     }
 }
+
+class SendCommandWithAutoInterfaceSelectThread extends Thread {
+    private final Object mLock;
+    private Communication.AutoInterfaceSelectCallback mCallback;
+    private byte[] mCommands;
+
+    private StarIOPort mPort;
+
+    private String  mPortSettings;
+    private int     mTimeout;
+    private int     mEndCheckedBlockTimeout;
+    private Context mContext;
+
+    SendCommandWithAutoInterfaceSelectThread(Object lock, byte[] commands, String portSettings, int timeout, int endCheckedBlockTimeout, Context context, Communication.AutoInterfaceSelectCallback callback) {
+        mCommands               = commands;
+        mPortSettings           = portSettings;
+        mTimeout                = timeout;
+        mEndCheckedBlockTimeout = endCheckedBlockTimeout;
+        mContext                = context;
+        mCallback               = callback;
+        mLock                   = lock;
+    }
+
+    @Override
+    public void run() {
+        Result result = Result.ErrorOpenPort;
+        int code = StarResultCode.FAILURE;
+        String portName = null;
+
+        synchronized (mLock) {
+            try {
+                // Specifying AutoSwitch: for portName allows you to automatically select the interface for connecting to the printer.
+                mPort = StarIOPort.getPort("AutoSwitch:", mPortSettings, mTimeout, mContext);
+
+                portName = mPort.getPortName();
+
+                StarPrinterStatus status;
+
+                result = Result.ErrorBeginCheckedBlock;
+
+                status = mPort.beginCheckedBlock();
+
+                if (status.offline) {
+                    throw new StarIOPortException("A printer is offline.");
+                }
+
+                result = Result.ErrorWritePort;
+
+                mPort.writePort(mCommands, 0, mCommands.length);
+
+                result = Result.ErrorEndCheckedBlock;
+
+                mPort.setEndCheckedBlockTimeoutMillis(mEndCheckedBlockTimeout);
+
+                status = mPort.endCheckedBlock();
+
+                if (status.coverOpen) {
+                    throw new StarIOPortException("Printer cover is open");
+                } else if (status.receiptPaperEmpty) {
+                    throw new StarIOPortException("Receipt paper is empty");
+                } else if (status.offline) {
+                    throw new StarIOPortException("Printer is offline");
+                }
+
+                result = Result.Success;
+                code = StarResultCode.SUCCESS;
+            } catch (StarIOPortException e) {
+                code = e.getErrorCode();
+            }
+
+            try {
+                StarIOPort.releasePort(mPort);
+            } catch (StarIOPortException e) {
+                // Nothing
+            }
+
+            resultSendCallback(result, code, portName, mCallback);
+        }
+    }
+
+    private static void resultSendCallback(final Result result, final int code, final String portName, final Communication.AutoInterfaceSelectCallback callback) {
+        if (callback != null) {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onStatus(portName, new CommunicationResult(result, code));
+                }
+            });
+        }
+    }
+}
+
+class SendCommandWithAutoInterfaceSelectExtThread extends Thread {
+    private Communication.AutoInterfaceSelectCallback mCallback;
+    private byte[] mCommands;
+    private final StarIoExtManager mStarIoExtManager;
+    private int     mEndCheckedBlockTimeout;
+
+    SendCommandWithAutoInterfaceSelectExtThread(byte[] commands, StarIoExtManager starIoExtManager, int endCheckedBlockTimeout, Communication.AutoInterfaceSelectCallback callback) {
+        mCommands               = commands;
+        mStarIoExtManager       = starIoExtManager;
+        mEndCheckedBlockTimeout = endCheckedBlockTimeout;
+        mCallback               = callback;
+    }
+
+    @Override
+    public void run() {
+        Result result = Result.ErrorOpenPort;
+        int code = StarResultCode.FAILURE;
+        String portName = null;
+
+        synchronized (mStarIoExtManager) {
+            try {
+                StarIOPort port = mStarIoExtManager.getPort();
+
+                if(port == null) {
+                    throw new StarIOPortException("port is null.");
+                }
+
+                portName = port.getPortName();
+
+                StarPrinterStatus status;
+
+                result = Result.ErrorBeginCheckedBlock;
+
+                status = port.beginCheckedBlock();
+
+                if (status.offline) {
+                    throw new StarIOPortException("A printer is offline.");
+                }
+
+                result = Result.ErrorWritePort;
+
+                port.writePort(mCommands, 0, mCommands.length);
+
+                result = Result.ErrorEndCheckedBlock;
+
+                port.setEndCheckedBlockTimeoutMillis(mEndCheckedBlockTimeout);
+
+                status = port.endCheckedBlock();
+
+                if (status.coverOpen) {
+                    throw new StarIOPortException("Printer cover is open");
+                } else if (status.receiptPaperEmpty) {
+                    throw new StarIOPortException("Receipt paper is empty");
+                } else if (status.offline) {
+                    throw new StarIOPortException("Printer is offline");
+                }
+
+                result = Result.Success;
+                code = StarResultCode.SUCCESS;
+            } catch (StarIOPortException e) {
+                code = e.getErrorCode();
+            }
+
+            resultSendCallback(result, code, portName, mCallback);
+        }
+    }
+
+    private static void resultSendCallback(final Result result, final int code, final String portName, final Communication.AutoInterfaceSelectCallback callback) {
+        if (callback != null) {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    callback.onStatus(portName, new CommunicationResult(result, code));
+                }
+            });
+        }
+    }
+}
+
+
+

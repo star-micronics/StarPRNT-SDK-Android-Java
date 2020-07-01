@@ -80,6 +80,7 @@ public class ModelCapability {
         int       defaultVolume;
         int       volumeMax;
         int       volumeMin;
+        boolean canUseAutoSwitchInterface;
 
         public ModelInfo(String    modelTitle,
                          String[]  modelNameArray,
@@ -110,7 +111,8 @@ public class ModelCapability {
                          int       defaultSoundNumber,
                          int       defaultVolume,
                          int       volumeMax,
-                         int       volumeMin) {
+                         int       volumeMin,
+                         boolean   canUseAutoSwitchInterface) {
             this.modelTitle                        = modelTitle;
             this.modelNameArray                    = modelNameArray;
             this.emulation                         = emulation;
@@ -141,6 +143,7 @@ public class ModelCapability {
             this.defaultVolume                     = defaultVolume;
             this.volumeMax                         = volumeMax;
             this.volumeMin                         = volumeMin;
+            this.canUseAutoSwitchInterface = canUseAutoSwitchInterface;
         }
     }
 
@@ -180,7 +183,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    true                                            // canUseAutoSwitchInterface
             ));
 
             put(MC_PRINT3, new ModelInfo(
@@ -216,7 +220,8 @@ public class ModelCapability {
                     0,                                              // defaultSoundNumber
                     12,                                             // defaultVolume
                     15,                                             // volumeMax
-                    0                                               // volumeMin
+                    0,                                              // volumeMin
+                    true                                            // canUseAutoSwitchInterface
             ));
 
             put(MPOP, new ModelInfo(
@@ -251,7 +256,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(FVP10, new ModelInfo(
@@ -286,7 +292,8 @@ public class ModelCapability {
                     1,                                              // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(TSP100, new ModelInfo(
@@ -322,7 +329,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(TSP650II, new ModelInfo(
@@ -349,7 +357,7 @@ public class ModelCapability {
                     false,                                          // canUseLed
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
-                    false,                                          // canUsePaperPresentStatus
+                    true,                                          // canUsePaperPresentStatus
                     true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
@@ -358,7 +366,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(TSP700II, new ModelInfo(
@@ -376,7 +385,7 @@ public class ModelCapability {
                     false,                                          // canPrintCjk
                     true,                                           // canUseBlackMark
                     true,                                           // canUseBlackMarkDetection
-                    false,                                          // canUsePageMode
+                    true,                                          // canUsePageMode
                     true,                                           // canUseCashDrawer
                     false,                                          // canUseBarcodeReader
                     false,                                          // canUseCustomerDisplay
@@ -393,7 +402,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(TSP800II, new ModelInfo(
@@ -428,7 +438,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(TUP500, new ModelInfo(
@@ -463,7 +474,8 @@ public class ModelCapability {
                     1,                                              // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SP700, new ModelInfo(
@@ -500,7 +512,8 @@ public class ModelCapability {
                     -1,                                                 // defaultSoundNumber
                     -1,                                                 // defaultVolume
                     -1,                                                 // volumeMax
-                    -1                                                  // volumeMin
+                    -1,                                                 // volumeMin
+                    false                                               // canUseAutoSwitchInterface
             ));
 
             put(SM_S210I, new ModelInfo(
@@ -533,7 +546,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_S220I, new ModelInfo(
@@ -566,7 +580,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_S230I, new ModelInfo(
@@ -599,7 +614,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_T300I_T300, new ModelInfo(
@@ -632,7 +648,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_T400I, new ModelInfo(
@@ -665,7 +682,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_L200, new ModelInfo(
@@ -700,7 +718,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_L300, new ModelInfo(
@@ -735,7 +754,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(BSC10, new ModelInfo(
@@ -770,7 +790,8 @@ public class ModelCapability {
                     -1,                                                     // defaultSoundNumber
                     -1,                                                     // defaultVolume
                     -1,                                                     // volumeMax
-                    -1                                                      // volumeMin
+                    -1,                                                     // volumeMin
+                    false                                                   // canUseAutoSwitchInterface
             ));
 
             put(SM_S210I_StarPRNT, new ModelInfo(
@@ -803,7 +824,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_S220I_StarPRNT, new ModelInfo(
@@ -836,7 +858,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_S230I_StarPRNT, new ModelInfo(
@@ -869,7 +892,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_T300I_T300_StarPRNT, new ModelInfo(
@@ -902,7 +926,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SM_T400I_StarPRNT, new ModelInfo(
@@ -935,7 +960,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SK1_211_221_V211, new ModelInfo(
@@ -969,7 +995,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SK1_211_221_V211_Presenter, new ModelInfo(
@@ -1003,7 +1030,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SK1_311_321_V311, new ModelInfo(
@@ -1037,7 +1065,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
 
             put(SK1_311_V311_Presenter, new ModelInfo(
@@ -1071,7 +1100,8 @@ public class ModelCapability {
                     -1,                                             // defaultSoundNumber
                     -1,                                             // defaultVolume
                     -1,                                             // volumeMax
-                    -1                                              // volumeMin
+                    -1,                                             // volumeMin
+                    false                                           // canUseAutoSwitchInterface
             ));
         }
     };
@@ -1225,6 +1255,10 @@ public class ModelCapability {
 
     public static int getVolumeMin(int model) {
         return mModelCapabilityMap.get(model).volumeMin;
+    }
+
+    public static boolean canUseAutoSwitchInterface(int model) {
+        return mModelCapabilityMap.get(model).canUseAutoSwitchInterface;
     }
 
     /**
