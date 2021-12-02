@@ -4,7 +4,7 @@ This package contains StarPRNT SDK for supporting to develop applications for St
 
 ## Scope
 
-Please refer to the [StarPRNT SDK](https://www.star-m.jp/products/s_print/sdk/starprnt_sdk/manual/android_java/en/index.html) document about the supported printers.
+Please refer to the [StarPRNT SDK document](https://www.star-m.jp/starprntsdk-oml-android.html) for supported OS, development environment, and supported printers.
 
 ## Limitation
 1. Only the last connected USB printer can communicate with Android V5.0.
