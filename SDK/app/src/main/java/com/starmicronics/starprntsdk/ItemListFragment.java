@@ -90,27 +90,4 @@ public class ItemListFragment extends Fragment implements ListView.OnItemClickLi
 
         adapter.add(new ItemList(R.layout.list_main_row, textList, isClickable));
     }
-
-    protected void addMenu(String title, boolean isClickable, int backGroundColor) {
-        List<TextInfo> textList = new ArrayList<>();
-
-        if (isClickable) {
-            textList.add(new TextInfo(title, R.id.menuTextView));
-        }
-        else {
-            textList.add(new TextInfo(title, R.id.menuTextView, ContextCompat.getColor(getActivity(), R.color.disabled_text)));
-        }
-
-        adapter.add(new ItemList(R.layout.list_main_row, textList, backGroundColor, isClickable));
-    }
-
-    protected void addSwitchMenu(String title, boolean isChecked, String tag, CompoundButton.OnCheckedChangeListener listener) {
-        List<TextInfo>   textList   = new ArrayList<>();
-        List<SwitchInfo> switchList = new ArrayList<>();
-
-        textList.add(new TextInfo(title, R.id.menuTextView));
-        switchList.add(new SwitchInfo(isChecked, R.id.menuSwitch, tag, listener));
-
-        adapter.add(new ItemList(R.layout.list_allreceipts_print_setting_row, textList, switchList, true));
-    }
 }

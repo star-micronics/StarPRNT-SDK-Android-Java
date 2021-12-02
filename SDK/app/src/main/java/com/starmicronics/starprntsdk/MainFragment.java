@@ -1,17 +1,23 @@
 package com.starmicronics.starprntsdk;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
-import com.starmicronics.cloudservices.CloudServices;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+
 import com.starmicronics.stario.StarIOPort;
 import com.starmicronics.starioextension.StarIoExt;
 
@@ -33,11 +39,11 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
 
     private static final String MPOP_COMBINATION_LANG_SELECT_DIALOG  = "mPOPCombinationLanguageSelectDialog";
 
-    private static final String ALL_RECEIPT_LANG_SELECT_DIALOG       = "AllReceiptLanguageSelectDialog";
-
     private static final String SERIAL_NUMBER_DIALOG                 = "SerialNumberDialog";
 
     private static final String LICENSE_DIALOG                       = "LicenseDialog";
+
+    private static final int BLUETOOTH_REQUEST_CODE = 1000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +52,18 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
         setHasOptionsMenu(true);
 
         updateList();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // If you are using Android 12 and targetSdkVersion is 31 or later,
+        // you have to request Bluetooth permission (Nearby devices permission) to use the Bluetooth printer.
+        // https://developer.android.com/about/versions/12/features/bluetooth-permissions
+        if (Build.VERSION_CODES.S <= Build.VERSION.SDK_INT) {
+            requestBluetoothPermission();
+        }
     }
 
     @Override
@@ -210,12 +228,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 22: {   // Tapped AllReceipts row
-                AllReceiptLanguageSelectDialogFragment dialog = AllReceiptLanguageSelectDialogFragment.newInstance(ALL_RECEIPT_LANG_SELECT_DIALOG);
-                dialog.show(getChildFragmentManager());
-                break;
-            }
-            case 24: {   // Tapped Device Status row (Device Status/Firmware Information)
+            case 22: {   // Tapped Device Status row (Device Status/Firmware Information)
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_device_status);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Device Status");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -224,12 +237,12 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 25: {   // Tapped Device Status row (Product Serial Number)
+            case 23: {   // Tapped Device Status row (Product Serial Number)
                 SerialNumberDialogFragment dialog = SerialNumberDialogFragment.newInstance(SERIAL_NUMBER_DIALOG);
                 dialog.show(getChildFragmentManager());
                 break;
             }
-            case 27: {   // Tapped Bluetooth Setting row
+            case 25: {   // Tapped Bluetooth Setting row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_bluetooth_setting);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Bluetooth Setting");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -238,7 +251,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 28: {   // Tapped USB Serial Number row
+            case 26: {   // Tapped USB Serial Number row
                 intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_usb_serial_number_setting);
                 intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "USB Serial Number");
                 intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
@@ -246,21 +259,18 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 startActivity(intent);
                 break;
             }
-            case 30: {   // Tapped Library Version row
+            case 28: {   // Tapped Library Version row
                 CommonAlertDialogFragment dialog = CommonAlertDialogFragment.newInstance("");
                 dialog.setTitle("Library Version");
                 dialog.setMessage(
                         "StarIOPort3.1 version " + StarIOPort.getStarIOVersion() + "\n" +
-                        StarIoExt.getDescription() + "\n" +
-                        CloudServices.getDescription());
+                        StarIoExt.getDescription());
                 dialog.setPositiveButton("OK");
                 dialog.show(getChildFragmentManager());
                 break;
             }
         }
     }
-
-
 
     @Override
     public void onDialogResult(String tag, Intent data) {
@@ -347,19 +357,36 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
 
                 break;
             }
-            case ALL_RECEIPT_LANG_SELECT_DIALOG: {
-                int language = data.getIntExtra(CommonActivity.BUNDLE_KEY_LANGUAGE, PrinterSettingConstant.LANGUAGE_ENGLISH);
+        }
+    }
 
-                Intent intent = new Intent(getActivity(), CommonActivity.class);
-                intent.putExtra(CommonActivity.BUNDLE_KEY_ACTIVITY_LAYOUT, R.layout.activity_all_receipts);
-                intent.putExtra(CommonActivity.BUNDLE_KEY_TOOLBAR_TITLE, "Star Micronics Cloud");
-                intent.putExtra(CommonActivity.BUNDLE_KEY_LANGUAGE, language);
-                intent.putExtra(CommonActivity.BUNDLE_KEY_SHOW_HOME_BUTTON, true);
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-                startActivity(intent);
-
-                break;
+        if (requestCode == BLUETOOTH_REQUEST_CODE) {
+            if (grantResults.length == 2 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                    grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                // Bluetooth permissions are granted.
+            } else {
+                String text = "You have to allow \"Nearby devices\" to use the Bluetooth printer";
+                Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
             }
+        }
+    }
+
+    @RequiresApi(31)
+    private void requestBluetoothPermission() {
+        if (getContext().checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED ||
+                getContext().checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_DENIED) {
+            requestPermissions(
+                    new String[]{
+                            Manifest.permission.BLUETOOTH_CONNECT,
+                            Manifest.permission.BLUETOOTH_SCAN,
+                    },
+                    BLUETOOTH_REQUEST_CODE
+            );
         }
     }
 
@@ -408,9 +435,6 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
 
         addTitle("API");
         addMenu("Sample",                     isDeviceSelected);
-
-        addTitle("Star Micronics Cloud");
-        addMenu("Sample",                     isDeviceSelected && ModelCapability.canUseAllReceipt(modelIndex));
 
         addTitle("Device Status");
         addMenu("Sample",                     isDeviceSelected);

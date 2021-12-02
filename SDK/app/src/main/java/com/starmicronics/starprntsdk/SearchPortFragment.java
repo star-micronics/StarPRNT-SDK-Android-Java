@@ -123,7 +123,7 @@ public final class SearchPortFragment extends ItemListFragment implements Common
     @Override
     public void onDialogResult(String tag, Intent data) {
         switch (tag) {
-            case INTERFACE_SELECT_DIALOG : {
+            case INTERFACE_SELECT_DIALOG: {
                 String[] selectedInterfaces = data.getStringArrayExtra(CommonActivity.BUNDLE_KEY_INTERFACE);
                 boolean isCanceled = data.hasExtra(CommonAlertDialogFragment.LABEL_NEGATIVE);
 
@@ -437,7 +437,7 @@ public final class SearchPortFragment extends ItemListFragment implements Common
             try {
                 mPortList = StarIOPort.searchPrinter(interfaceType[0], getActivity());
             }
-            catch (StarIOPortException e) {
+            catch (StarIOPortException | SecurityException e) {
                 mPortList = new ArrayList<>();
             }
 

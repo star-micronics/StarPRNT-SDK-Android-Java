@@ -13,11 +13,9 @@ import java.util.List;
 public class PrinterSettingManager {
 
     public static final String PREF_KEY_PRINTER_SETTINGS_JSON = "pref_key_printer_settings_json";
-    public static final String PREF_KEY_ALLRECEIPTS_SETTINGS  = "pref_key_allreceipts_settings";
 
     private Context mContext;
     private List<PrinterSettings> mPrinterSettingsList;
-    private int mAllReceiptSettings;
 
     PrinterSettingManager(Context context) {
         mContext = context;
@@ -31,8 +29,6 @@ public class PrinterSettingManager {
         }
 
         mPrinterSettingsList = JsonUtils.createPrinterSettingListFromJsonString(prefs.getString(PREF_KEY_PRINTER_SETTINGS_JSON, ""));
-
-        mAllReceiptSettings = prefs.getInt(PREF_KEY_ALLRECEIPTS_SETTINGS, 0);
     }
 
     public void storePrinterSettings(int index, PrinterSettings settings) {
@@ -67,17 +63,5 @@ public class PrinterSettingManager {
 
     public List<PrinterSettings> getPrinterSettingsList() {
         return mPrinterSettingsList;
-    }
-
-    public void storeAllReceiptSettings(int allReceiptSettings) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
-
-        prefs.edit()
-                .putInt(PREF_KEY_ALLRECEIPTS_SETTINGS, allReceiptSettings)
-                .apply();
-    }
-
-    public int getAllReceiptSetting() {
-        return mAllReceiptSettings;
     }
 }

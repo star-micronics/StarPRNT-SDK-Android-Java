@@ -1,19 +1,10 @@
 # StarPRNT SDK Android Java
 
-StarIO/starioextension/smcloudservices is a library for supporting application development for Star printers.
+This package contains StarPRNT SDK for supporting to develop applications for Star printers.
 
 ## Scope
 
 Please refer to the [StarPRNT SDK](https://www.star-m.jp/products/s_print/sdk/starprnt_sdk/manual/android_java/en/index.html) document about the supported printers.
-
-Works with these Emulation:
-- StarPRNT Mode
-- Star Line Mode
-- Star Graphic Mode
-- ESC/POS
-- ESC/POS Mobile
-- Star Dot Impact
-
 
 ## Limitation
 1. Only the last connected USB printer can communicate with Android V5.0.
@@ -38,4 +29,4 @@ Beginning from StarIOPort3.1.jar V2.6.0 (StarPRNT SDK V5.11.0), the releasePort 
 
 ## Copyright
 
-Copyright 2016-2020 Star Micronics Co., Ltd. All rights reserved.
+Copyright 2016-2021 Star Micronics Co., Ltd. All rights reserved.

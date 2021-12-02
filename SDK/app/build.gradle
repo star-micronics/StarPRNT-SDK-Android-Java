@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.StarMicronics.StarIOSDK"
 
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 31
 
-        versionCode 56
-        versionName "5.14.0"
+        versionCode 63
+        versionName "5.15.0"
     }
     buildTypes {
         release {
@@ -21,9 +21,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.starmicronics:stario:2.9.0'
+    implementation 'com.starmicronics:stario:2.10.0'
     implementation 'com.starmicronics:starioextension:1.15.0'
-    implementation 'com.starmicronics:smcloudservices:1.4.1'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

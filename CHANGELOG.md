@@ -1,3 +1,23 @@
+# V5.15.0
+
+## StarIO
+- Added features
+  * Added TSP100IV.
+- Support Android 12
+  * Support for Android OS specification change when using USB communication.
+
+## smcloudservices
+- End of support
+
+## SDK
+- Added Sample Codes
+  * Added TSP100IV.
+  * Support for new Bluetooth permission request when targeting Android 12.
+
+stario (Ver. 2.10.0)  
+starioextension (Ver. 1.15.0)
+
+
 # V5.14.0
 
 ## stario

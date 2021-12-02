@@ -49,6 +49,9 @@ public class ModelCapability {
     public static final int SK1_311_321_V311           = 25;
     public static final int SK1_311_V311_Presenter     = 26;
 
+    // V5.15.0
+    public static final int TSP100IV                   = 27;
+
     static class ModelInfo {
         String    modelTitle;
         String[]  modelNameArray;
@@ -71,7 +74,6 @@ public class ModelCapability {
         LedModel  ledModel;
         boolean   canUseBlinkLed;
         boolean   canUsePaperPresentStatus;
-        boolean   canUseAllReceipt;
         boolean   canGetProductSerialNumber;
         int       settableUsbSerialNumberLength;
         boolean   isUsbSerialNumberEnabledByDefault;
@@ -103,7 +105,6 @@ public class ModelCapability {
                          LedModel  ledModel,
                          boolean   canUseBlinkLed,
                          boolean   canUsePaperPresentStatus,
-                         boolean   canUseAllReceipt,
                          boolean   canGetProductSerialNumber,
                          int       settableUsbSerialNumberLength,
                          boolean   isUsbSerialNumberEnabledByDefault,
@@ -134,7 +135,6 @@ public class ModelCapability {
             this.ledModel                          = ledModel;
             this.canUseBlinkLed                    = canUseBlinkLed;
             this.canUsePaperPresentStatus          = canUsePaperPresentStatus;
-            this.canUseAllReceipt                  = canUseAllReceipt;
             this.canGetProductSerialNumber         = canGetProductSerialNumber;
             this.settableUsbSerialNumberLength     = settableUsbSerialNumberLength;
             this.isUsbSerialNumberEnabledByDefault = isUsbSerialNumberEnabledByDefault;
@@ -175,7 +175,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     true,                                           // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault
@@ -212,7 +211,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     true,                                           // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault
@@ -248,7 +246,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     true,                                           // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -284,7 +281,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -321,7 +317,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     true,                                           // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -358,7 +353,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     true,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -394,7 +388,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -430,7 +423,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -466,7 +458,6 @@ public class ModelCapability {
                     LedModel.Star,                                  // ledModel
                     true,                                           // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -504,7 +495,6 @@ public class ModelCapability {
                     LedModel.None,                                      // ledModel
                     false,                                              // canUseBlinkLed
                     false,                                              // canUsePaperPresentStatus
-                    false,                                              // canUseAllReceipt
                     false,                                              // canGetProductSerialNumber
                     8,                                                  // settableUsbSerialNumberLength
                     false,                                              // isUsbSerialNumberEnabledByDefault
@@ -538,7 +528,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -572,7 +561,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -606,7 +594,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -640,7 +627,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -674,7 +660,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -710,7 +695,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -746,7 +730,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -782,7 +765,6 @@ public class ModelCapability {
                     LedModel.None,                                          // ledModel
                     false,                                                  // canUseBlinkLed
                     false,                                                  // canUsePaperPresentStatus
-                    true,                                                   // canUseAllReceipt
                     false,                                                  // canGetProductSerialNumber
                     8,                                                      // settableUsbSerialNumberLength
                     false,                                                  // isUsbSerialNumberEnabledByDefault
@@ -816,7 +798,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -850,7 +831,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -884,7 +864,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     8,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -918,7 +897,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -952,7 +930,6 @@ public class ModelCapability {
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     0,                                              // settableUsbSerialNumberLength
                     false,                                          // isUsbSerialNumberEnabledByDefault
@@ -987,7 +964,6 @@ public class ModelCapability {
                     LedModel.SK,                                    // ledModel
                     false,                                          // canUseBlinkLed
                     true,                                           // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault
@@ -1022,7 +998,6 @@ public class ModelCapability {
                     LedModel.SK,                                    // ledModel
                     true,                                           // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault
@@ -1057,7 +1032,6 @@ public class ModelCapability {
                     LedModel.SK,                                    // ledModel
                     false,                                          // canUseBlinkLed
                     true,                                           // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault
@@ -1092,7 +1066,6 @@ public class ModelCapability {
                     LedModel.SK,                                    // ledModel
                     true,                                           // canUseBlinkLed
                     false,                                          // canUsePaperPresentStatus
-                    true,                                           // canUseAllReceipt
                     false,                                          // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault
@@ -1102,6 +1075,41 @@ public class ModelCapability {
                     -1,                                             // volumeMax
                     -1,                                             // volumeMin
                     false                                           // canUseAutoSwitchInterface
+            ));
+
+            put(TSP100IV, new ModelInfo(
+                    "TSP100IV",                                    // modelTitle
+                    new String[]{                                   // modelNameArray
+                            "TSP143IV (STR-001)",                      // <-LAN interface
+                            "Star TSP143IV-UE"},                           // <-USB interface
+                    Emulation.StarPRNT,                             // Emulation
+                    "",                                             // Default portSettings
+                    PrinterSettingConstant.PAPER_SIZE_THREE_INCH,   // Default paper size
+                    true,                                           // canSetDrawerOpenStatus
+                    true,                                           // canPrintTextReceiptSample
+                    true,                                           // canPrintUtf8EncodedText
+                    true,                                           // canPrintRasterReceiptSample
+                    true,                                           // canPrintCjk
+                    false,                                          // canUseBlackMark
+                    false,                                          // canUseBlackMarkDetection
+                    true,                                           // canUsePageMode
+                    true,                                           // canUseCashDrawer
+                    true,                                           // canUseBarcodeReader
+                    true,                                           // canUseCustomerDisplay
+                    false,                                          // canUsePresenter
+                    false,                                          // canUseLed
+                    LedModel.None,                                  // ledModel
+                    false,                                          // canUseBlinkLed
+                    false,                                          // canUsePaperPresentStatus
+                    true,                                           // canGetProductSerialNumber
+                    16,                                             // settableUsbSerialNumberLength
+                    true,                                           // isUsbSerialNumberEnabledByDefault
+                    true,                                           // canUseMelodySpeaker
+                    0,                                              // defaultSoundNumber
+                    12,                                             // defaultVolume
+                    15,                                             // volumeMax
+                    0,                                              // volumeMin
+                    true                                            // canUseAutoSwitchInterface
             ));
         }
     };
@@ -1188,10 +1196,6 @@ public class ModelCapability {
 
     public static boolean canUsePaperPresentStatus(int model) {
         return mModelCapabilityMap.get(model).canUsePaperPresentStatus;
-    }
-
-    public static boolean canUseAllReceipt(int model) {
-        return mModelCapabilityMap.get(model).canUseAllReceipt;
     }
 
     public static boolean canGetProductSerialNumber(int model, String modelName, boolean isBluetoothInterface) {

@@ -145,7 +145,7 @@ public class MelodySpeakerFragment extends Fragment implements CommonAlertDialog
 
         mRegisteredSoundVolumeSpinner = rootView.findViewById(R.id.registeredSoundVolumeSpinner);
 
-        mRegisteredSoundVolumeSpinner.setEnabled(modelIndex == ModelCapability.MC_PRINT3);
+        mRegisteredSoundVolumeSpinner.setEnabled(modelIndex == ModelCapability.MC_PRINT3 || modelIndex == ModelCapability.TSP100IV);
 
         ArrayAdapter<String> volumeArrayAdapter = new ArrayAdapter<>(
                 getActivity(),
@@ -166,6 +166,7 @@ public class MelodySpeakerFragment extends Fragment implements CommonAlertDialog
                     mRegisteredSoundVolumeSeekBarContainer.setVisibility(View.GONE);
                 }
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -222,7 +223,7 @@ public class MelodySpeakerFragment extends Fragment implements CommonAlertDialog
 
         mReceivedDataVolumeSpinner = rootView.findViewById(R.id.receivedDataVolumeSpinner);
 
-        mReceivedDataVolumeSpinner.setEnabled(modelIndex == ModelCapability.MC_PRINT3);
+        mReceivedDataVolumeSpinner.setEnabled(modelIndex == ModelCapability.MC_PRINT3 || modelIndex == ModelCapability.TSP100IV);
 
         ArrayAdapter<String> receivedDataVolumeArrayAdapter = new ArrayAdapter<>(
                 getActivity(),
@@ -301,6 +302,7 @@ public class MelodySpeakerFragment extends Fragment implements CommonAlertDialog
         switch (modelIndex) {
             default:
             case ModelCapability.MC_PRINT3:
+            case ModelCapability.TSP100IV:
                 mMelodySpeakerModel = MelodySpeakerModel.MCS10;
                 break;
             case ModelCapability.FVP10:
