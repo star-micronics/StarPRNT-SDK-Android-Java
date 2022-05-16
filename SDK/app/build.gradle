@@ -9,8 +9,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 31
 
-        versionCode 63
-        versionName "5.15.0"
+        versionCode 68
+        versionName "5.15.1"
     }
     buildTypes {
         release {
@@ -21,8 +21,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.starmicronics:stario:2.10.0'
-    implementation 'com.starmicronics:starioextension:1.15.0'
+    implementation 'com.starmicronics:stario:2.10.1'
+    implementation 'com.starmicronics:starioextension:1.15.1'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }

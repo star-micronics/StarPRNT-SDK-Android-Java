@@ -1,3 +1,14 @@
+# V5.15.1
+
+## StarIO
+- Added new Bluetooth module information for SM-L200.
+
+## starioextension
+- Fixed an issue where apps configured to use AndroidX could not be built if Jetifier was not used.
+
+stario (Ver. 2.10.1)  
+starioextension (Ver. 1.15.1)
+
 # V5.15.0
 
 ## StarIO
