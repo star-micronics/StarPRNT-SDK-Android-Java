@@ -1,0 +1,316 @@
+
+=============
+ Changelog
+=============
+    Ver.5.16.0_202230331
+    2023/03/31:
+        [StarIO]
+            - Added features
+                * Added mC-Label3.
+                * StarBluetoothManager : Added SSP_NUMERIC_COMPARISON to StarBluetoothSecurity.
+            - Added new Bluetooth module information for SM-S230i, SM-T300i, SM-T300 and SM-T400i.
+
+    Ver.5.15.1_20220510
+    2022/05/10:
+        [StarIO]
+            - Added new Bluetooth module information for SM-L200.
+
+        [starioextension]
+            - Fixed an issue where apps configured to use AndroidX could not be built if Jetifier was not used.
+
+    Ver.5.15.0_20211109
+    2021/11/09:
+        [StarIO]
+            - Added features
+                * Added TSP100IV.
+            - Support Android 12
+                * Support for Android OS specification change when using USB communication.
+
+        [smcloudservices]
+            - End of support
+
+        [SDK]
+            - Added Sample Codes
+                * Added TSP100IV.
+                * Support for new Bluetooth permission request when targeting Android 12.
+
+    Ver.5.14.0_20201209
+    2020/12/09:
+        [StarIODeviceSetting example]
+            - New
+
+        [StarIODeviceSetting]
+            - New
+
+    Ver.5.14.0
+    2020/06/17:
+        [StarIO]
+            - Added features
+                * Added MCP31C and TSP650IISK.
+                * Added Auto Interface Select function.
+
+        [starioextension]
+            - Added features
+                * Added MCP31C and TSP650IISK.
+                * Added Auto Interface Select function.
+                * USB HID class (Keyboard mode) support for StarIoExtManager and IPeripheralCommandParser.
+
+        [SDK]
+            - Added Sample Codes
+                * Added sample codes for Auto Interface Select function.
+
+    Ver 5.13.0
+    2019/12/25:
+        [StarIO]
+            - Improved internal processing
+
+        [SDK]
+            - Changed project structure
+                * Maven support for each library.
+
+        [Manual]
+            - Changed StarPRNT SDK User's Manual from PDF to online manual link
+
+    Ver 5.12.0
+    2019/10/10:
+        [StarIO]
+            - Added features
+                * Added SK1 series.
+                * Added a function of awaiting paper removal to the beginCheckedBlock method.
+            - Changed specification
+                * Introduced processing to avoid problems with some Android devices (Android 7.1 or lower and USB interface).
+
+        [starioextension]
+            - Added features
+                * Added methods to do each bezel setting.
+                * Added methods to set label paper detection.
+
+        [SDK]
+            - Added sample codes
+                * Implementation example to control awaiting paper removal.
+                * Implementation example of label paper detection setting.
+                * Implementation example of minimum page length setting for bezel.
+
+    Ver 5.11.0
+    2019/09/04:
+        [Support OS]
+            - Supported OS version: 5.0 or later.
+
+        [StarIO]
+            - Added features
+                * Added TUP500.
+                * Added the getErrorCode method to StarIOPortException class.
+            - Changed specification
+                * Change the behavior of releasePort method
+                Before:
+                    In the case of calling getPort method multiple times before calling releasePort method,
+                    the port is released by calling releasePort method the same number of times as the getPort method was called.
+                    After:
+                    The port is always released when releasePort method is called.
+
+        [starioextension]
+            - Added features
+                * Changed to enable/disable black mark setting of StarPRNT emulation mobile printer with appendBlackMark method.
+
+        [SDK]
+            - Added Sample Codes
+                * Added sample codes for getting the cause of communication failure with the printer.
+            - Changed Sample Codes
+                * Changed the call timing of the connect/disconnect method of StarIoExtManager class from onStart/onStop to
+                  onResume/onPause.
+                  In order to follow the screen state (foreground/background) more quickly, it is recommended to call
+                  connect/disconnect at onResume/onPause in case executing connect/disconnect depending on the lifecycle.
+
+    Ver 5.10.0
+    2019/03/07:
+        [starioextension]
+            - Added features
+                * Added appendCjkUnifiedIdeographFont method.
+                  It allows you to specify the priority of CJK integrated Kanji font in UTF-8.
+                  Supported printer: TSP650II(JP2/TW) with firmware version 4.0 or later,
+                  mC-Print2 and mC-Print3
+                * Added ExtMode which specifies the barcode mode (symbol width) conforming to
+                  each command specification to SCBBarcodeWidth.
+            - Fixed Bugs
+                * Fixed a bug where the image to be printed was moved twice the absolute
+                  position of the position specified by the appendBitmapWithAbsolutePosition
+                  method in ESC/POS emulation.
+                * Fixed a bug that the print start position on the horizontal axis is not set
+                  to the head of the line even if 0 is specified for the position in the
+                  appendBitmapWithAbsolutePosition method in page mode.
+
+        [SDK]
+            - Changed sample code
+                * Changed the implementation of printing the sample of CJK unified ideographs
+                  in UTF-8 to use the appendCjkUnifiedIdeographFont method.
+
+    Ver 5.9.0
+    2018/11/20:
+        [StarIO]
+            - Added features.
+　              * Added StarResultCode class.
+
+        [starioextension]
+            - Added features.
+                * Added API for Melody Speaker control.
+                * Added ConnectionCallback class and StarIoExtManager.connect(ConnectionCallback callback) method.
+                  These allow you to get the cause of connection failure.
+
+        [smcloudservices]
+            - Fixed Bugs.
+                * Changed the background color of the registration dialog to the standard background color of app's theme
+                  to fix that the color combination of dialog may be weird depending on the app's theme.
+
+        [SDK]
+            - Add Sample Codes.
+                * Added sample codes for Melody Speaker control.
+                * Added sample codes to get the cause of StarIoExtManager.connect(ConnectionCallback callback) method failure.
+
+    Ver 5.7.0
+    2018/06/29:
+        [StarIO]
+            - Fixed a bug that a printer status might be judged to be offline when black mark is
+              detected in case of SM-T300, SM-T300i and SM-T400i in ESC/POS mobile emulation and
+              black mark enabled.
+
+        [starioextension]
+            - End of support
+                * StarIoExt.createScaleCommandBuilder method
+                * StarIoExt.createScaleConnectParser method
+                * StarIoExt.createScaleWeightParser method
+                * ScaleModel enum
+                * IScaleCommandBuilder interface
+                * IPeripheralCommandParser.createReceiveCommands method
+                * IScaleWeightParser interface
+
+        [smcloudservices]
+            - Added features
+　              * CloudServices.showRegistrationView method
+                  When the password of SCS dash board is changed, you can update local password too.
+
+        [SDK]
+            - Added sample codes for Print Re-Direction.
+
+    Ver 5.6.0
+    2018/05/21:
+        [StarIO]
+            - Added features
+                * Added mC-Print2 and mC-Print3.
+                * Added options to portSettings of getPort method.
+                * Added the connectedInterface field to StarPrinterStatus class.
+
+        [starioextension]
+            - Added features
+                * Added method for setting top margin.
+                * Added method for setting printable area.
+                * Added drive time parameter and delay time parameter to the appendSound method.
+            - Fixed Bugs
+                * Fixed a bug that parse method of IScaleWeightParser interface might not return proper result.
+
+        [SDK]
+            - Added Sample Codes
+                * Added sample codes for setting or initializing USB serial number.
+            - Added Open Source License item.
+
+    Ver 5.5.0
+    2018/01/31:
+        [StarIO]
+            - Changed to be able to get the firmware version of TSP100IIILAN, TSP100IIIW and TSP100IIIU with the
+              getFirmwareInformation method.
+            - Fixed a bug that printing fails when printer restores within timeout after turning off printer power
+              under monitoring with starioextension library in the LAN interface.
+
+        [starioextension]
+            - Added method for setting or clearing horizontal tab.
+
+        [SDK]
+            - Added Sample Codes.
+                * Implementation of the CJK unified ideographs printing sample under UTF-8.
+                  (Supported by TSP650II(JP2/TW) with firmware version 4.0 or later only)
+
+    Ver 5.4.1
+    2017/09/21:
+        [starioextension]
+            - Fixed Bug
+                * The appendBitmap method caused extra margin in ESC/POS emulation.
+
+    Ver 5.4.0
+    2017/09/06:
+        [Support OS]
+            - Supported OS version: 4.3 or later.
+
+        [StarIO]
+            - Fixed a bug that the beginCheckedBlock method sometimes fails in the Bluetooth interface.
+
+        [starioextension]
+            - Added features
+                * Added API for Scale, Display control.
+                * Added graphic data compression function for SM-L series.
+            - Fixed Bugs
+                * Executing the disconnect method when the onAccessoryDisconnect method is called
+                  might not correctly disconnect from the printer.
+                * If the PortName is specified with "BT:", the onAccessoryDisconnect method will not
+                  be called when disconnecting the printer.
+                * The callback of the connect method might not be correctly called.
+
+        [SDK]
+            - Added sample codes for getting serial number, Firmware version and Library version,
+              and setting Bluetooth.
+            - Changed the Application ID from com.starmicronics.starprntsdk to com.StarMicronics.StarIOSDK.
+              If you have already installed Ver 5.3.0, Ver 5.4.0 will be installed as the other app.
+            - Added the BLUETOOTH_ADMIN permission to the AndroidManifest.xml because some Android devices
+              sometimes require the BLUETOOTH_ADMIN permission during Bluetooth communication.
+
+    Ver 5.3.0
+    2017/04/17:
+        [StarIO]
+            - Added TSP100IIIU and SM-L300.
+            - Connectivity improve with LAN interface Printer.
+
+        [starioextension]
+            - Added methods that creates Black Mark/Page Mode commands.
+
+        [SDK]
+            - Added sample code for Black Mark/Page Mode function.
+
+    Ver 5.2.0
+    2017/03/08:
+        [StarIO]
+            - Connectivity improvements
+                * Bluetooth Mac Address for SM-L200.
+                * ESC/POS Mobile.
+
+        [smcloudservices]
+            - Fixed Bug.
+                * Debug uploadBitmap/updateStatus method function.
+
+            - Added the MicroReceipt function.
+              MicroReceipt function will reduce paper.
+
+        [SDK]
+            - Add Sample Code.
+                * 2D barcode reader and scale available with mPOP.
+
+    Ver 5.1.0
+    2016/11/18:
+        [StarIO]
+            - Support Android 7.0.
+            - Supported the getFirmwareInformation method with BSC10 with LAN interface.
+
+        [starioextension/smcloudservices]
+            - Added uploadData method in AllReceiipts class.
+                * Added the uploadData method to the AllReceipts class.
+                  Data which is transmitted by uploadData method is rendered to digital receipt image by Command Emulator on SMCS.
+                  Refer to "CommandEmulator_on_SMCS.pdf" for details.
+
+            - Fixed Bug.
+                * onAccessoryDisconnect method is called even when disconnecting USB devices other than the printer.
+
+        [SDK]
+            - Add Sample Codes.
+                * Implementation of the AllReceipts support on StarPRNT, StarLine, ESC/POS Mobile and ESC/POS.
+            - Add supported command lists of AllReceipts command emulator.
+
+    Ver.5.0.1
+    2016/08/11:
+        First release.
