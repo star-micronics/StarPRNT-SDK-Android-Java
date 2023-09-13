@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import androidx.annotation.NonNull;
@@ -629,12 +630,19 @@ public class MelodySpeakerFragment extends Fragment implements CommonAlertDialog
     }
 
     private void openFileListAfterPermissionCheck() {
-        int hasPermission = ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE);
-
-        if (hasPermission != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_REQUEST_CODE);
+        String permissionType = "";
+        if (Build.VERSION.SDK_INT > 32) {
+            permissionType = Manifest.permission.READ_MEDIA_AUDIO;
         }
         else {
+            permissionType = Manifest.permission.READ_EXTERNAL_STORAGE;
+        }
+
+        int hasPermission = ContextCompat.checkSelfPermission(getActivity(), permissionType);
+
+        if (hasPermission != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{permissionType}, STORAGE_PERMISSION_REQUEST_CODE);
+        } else {
             openFileList();
         }
     }

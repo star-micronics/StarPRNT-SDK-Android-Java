@@ -1120,8 +1120,9 @@ public class ModelCapability {
             put(TSP100IV, new ModelInfo(
                     "TSP100IV",                                    // modelTitle
                     new String[]{                                   // modelNameArray
-                            "TSP143IV (STR-001)",                      // <-LAN interface
-                            "Star TSP143IV-UE"},                           // <-USB interface
+                            "TSP143IV (STR-001)",                   // <-LAN interface
+                            "Star TSP143IV-UE",                     // <-USB interface
+                            "Star TSP143IV-UE SK"},
                     Emulation.StarPRNT,                             // Emulation
                     "",                                             // Default portSettings
                     PrinterSettingConstant.PAPER_SIZE_THREE_INCH,   // Default paper size
@@ -1140,7 +1141,7 @@ public class ModelCapability {
                     false,                                          // canUseLed
                     LedModel.None,                                  // ledModel
                     false,                                          // canUseBlinkLed
-                    false,                                          // canUsePaperPresentStatus
+                    true,                                           // canUsePaperPresentStatus
                     true,                                           // canGetProductSerialNumber
                     16,                                             // settableUsbSerialNumberLength
                     true,                                           // isUsbSerialNumberEnabledByDefault

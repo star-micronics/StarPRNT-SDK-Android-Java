@@ -1,6 +1,19 @@
+# V5.17.0
+
+## stario
+- Minor fixes that do not affect operation.
+
+## SDK
+- Added Sample Codes
+  * Supported TSP100IV SK.
+
+stario (Ver. 2.11.1)  
+starioextension (Ver. 1.15.1)
+
+
 # V5.16.0
 
-## StarIO
+## stario
 - Added features
   * Added mC-Label3.
   * `StarBluetoothManager` : Added `SSP_NUMERIC_COMPARISON` to `StarBluetoothSecurity`.

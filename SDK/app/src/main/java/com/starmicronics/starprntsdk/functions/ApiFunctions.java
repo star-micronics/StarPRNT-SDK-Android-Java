@@ -408,8 +408,8 @@ public class ApiFunctions {
 
             builder.appendCutPaper(CutPaperAction.PartialCutWithFeed);
 
-            builder.appendTopMargin(6);
-            builder.append("*Top margin:6mm*\n".getBytes());
+            builder.appendTopMargin(5);
+            builder.append("*Top margin:5mm*\n".getBytes());
             builder.append(data);
             builder.append(data);
             builder.append(data);
