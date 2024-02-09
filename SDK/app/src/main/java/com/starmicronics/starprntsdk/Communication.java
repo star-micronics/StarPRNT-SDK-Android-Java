@@ -1,6 +1,7 @@
 package com.starmicronics.starprntsdk;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -1448,6 +1449,15 @@ class SetUsbSerialNumberThread extends Thread {
             }
 
             if (mPort != null && mPortName != null) {
+                if(Build.VERSION.SDK_INT <= 28 && mPortName.toUpperCase().startsWith("USB:")) {
+                    // Wait for 5 seconds until printer recover from software reset.
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        // Nothing
+                    }
+                }
+
                 try {
                     StarIOPort.releasePort(mPort);
                 } catch (StarIOPortException e) {
@@ -1557,6 +1567,15 @@ class InitializeUsbSerialNumberThread extends Thread {
             }
 
             if (mPort != null && mPortName != null) {
+                if(Build.VERSION.SDK_INT <= 28 && mPortName.toUpperCase().startsWith("USB:")) {
+                    // Wait for 5 seconds until printer recover from software reset.
+                    try {
+                        Thread.sleep(5000);
+                    } catch (InterruptedException e) {
+                        // Nothing
+                    }
+                }
+
                 try {
                     StarIOPort.releasePort(mPort);
                 } catch (StarIOPortException e) {

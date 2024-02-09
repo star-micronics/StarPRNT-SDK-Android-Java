@@ -263,7 +263,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
                 CommonAlertDialogFragment dialog = CommonAlertDialogFragment.newInstance("");
                 dialog.setTitle("Library Version");
                 dialog.setMessage(
-                        "StarIOPort3.1 version " + StarIOPort.getStarIOVersion() + "\n" +
+                        "StarIO version " + StarIOPort.getStarIOVersion() + "\n" +
                         StarIoExt.getDescription());
                 dialog.setPositiveButton("OK");
                 dialog.show(getChildFragmentManager());

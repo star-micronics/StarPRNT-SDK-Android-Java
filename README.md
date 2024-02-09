@@ -29,4 +29,4 @@ Beginning from StarIOPort3.1.jar V2.6.0 (StarPRNT SDK V5.11.0), the releasePort 
 
 ## Copyright
 
-Copyright 2016-2023 Star Micronics Co., Ltd. All rights reserved.
+Copyright 2016-2024 Star Micronics Co., Ltd. All rights reserved.

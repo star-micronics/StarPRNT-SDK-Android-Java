@@ -1,3 +1,31 @@
+# V5.17.1
+
+## stario
+- Support Android14
+- Changed the library format from JAR to AAR. The library file name has be changed as follows.
+  * stario.aar (old name : StarIOPort3.1.jar)
+- Fixed an issue.
+  * Fixed an issue where the obtained printer status may not be the latest.
+    (When using Android 9 or lower devices and a printer with AOA connection)
+
+## starioextension
+- Support Android14
+- Changed the library format from JAR to AAR. The library file name has be changed as follows.
+  * starioextension.aar (old name : starioextension.jar)
+
+## stariodevicesetting
+- Support Android14
+  * Note on changing the library format to AAR
+    When linking libraries manually, the description of app/build.gradle is as follows.
+        dependencies {
+             implementation(name: 'stario', ext: 'aar')
+             ....
+        }
+
+## SDK
+- Support Android14
+
+
 # V5.17.0
 
 ## stario
