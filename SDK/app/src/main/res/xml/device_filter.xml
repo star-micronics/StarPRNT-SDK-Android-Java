@@ -15,8 +15,9 @@
     <usb-device vendor-id="1305" product-id="0067" />   <!--SM-S210i/230i     - mobile printer-->
     <usb-device vendor-id="1305" product-id="0023" />   <!--mPOP              - printerClass-->
     <usb-device vendor-id="1305" product-id="0071" />   <!--mC-Print3         - printerClass-->
-    <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2         - printerClass-->]
+    <usb-device vendor-id="1305" product-id="0073" />   <!--mC-Print2         - printerClass-->
     <usb-device vendor-id="1305" product-id="0025" />   <!--mC-Label3         - printerClass-->
+    <usb-device vendor-id="1305" product-id="0027" />   <!--BSC10II StarPRNT  - printerClass-->
     <usb-device vendor-id="1305" product-id="0075" />   <!--SK1-211/221/V211  - printerClass-->
     <usb-device vendor-id="1305" product-id="0077" />   <!--SK1-311/321/V311  - printerClass-->
 </resources>

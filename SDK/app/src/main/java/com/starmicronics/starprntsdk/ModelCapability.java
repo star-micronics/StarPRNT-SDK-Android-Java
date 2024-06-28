@@ -55,6 +55,9 @@ public class ModelCapability {
     // V5.16.0
     public static final int MC_LABEL3                  = 28;
 
+    // V5.18.0
+    public static final int BSC10II                    = 29;
+
     static class ModelInfo {
         String    modelTitle;
         String[]  modelNameArray;
@@ -1150,6 +1153,41 @@ public class ModelCapability {
                     12,                                             // defaultVolume
                     15,                                             // volumeMax
                     0,                                              // volumeMin
+                    true                                            // canUseAutoSwitchInterface
+            ));
+
+            put(BSC10II, new ModelInfo(
+                    "BSC10II",                                    // modelTitle
+                    new String[]{                                   // modelNameArray
+                            "BSC10II (STR-001)",                    // <-LAN interface
+                            "BSC10II"},                             // <-USB interface
+                    Emulation.StarPRNT,                             // Emulation
+                    "",                                             // Default portSettings
+                    PrinterSettingConstant.PAPER_SIZE_THREE_INCH,   // Default paper size
+                    true,                                           // canSetDrawerOpenStatus
+                    true,                                           // canPrintTextReceiptSample
+                    true,                                           // canPrintUtf8EncodedText
+                    true,                                           // canPrintRasterReceiptSample
+                    true,                                           // canPrintCjk
+                    false,                                          // canUseBlackMark
+                    false,                                          // canUseBlackMarkDetection
+                    true,                                           // canUsePageMode
+                    true,                                           // canUseCashDrawer
+                    false,                                          // canUseBarcodeReader
+                    false,                                          // canUseCustomerDisplay
+                    false,                                          // canUsePresenter
+                    false,                                          // canUseLed
+                    LedModel.None,                                  // ledModel
+                    false,                                          // canUseBlinkLed
+                    false,                                          // canUsePaperPresentStatus
+                    true,                                           // canGetProductSerialNumber
+                    16,                                             // settableUsbSerialNumberLength
+                    true,                                           // isUsbSerialNumberEnabledByDefault
+                    false,                                          // canUseMelodySpeaker
+                    -1,                                             // defaultSoundNumber
+                    -1,                                             // defaultVolume
+                    -1,                                             // volumeMax
+                    -1,                                             // volumeMin
                     true                                            // canUseAutoSwitchInterface
             ));
         }

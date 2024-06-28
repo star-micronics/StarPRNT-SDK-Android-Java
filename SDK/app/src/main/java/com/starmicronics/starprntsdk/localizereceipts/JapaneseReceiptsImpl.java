@@ -56,7 +56,9 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendEmphasis(true);
 
-        builder.appendMultipleHeight("スター電機\n".getBytes(encoding), 3);
+        builder.append(("[サンプル印刷]\n").getBytes(encoding));
+
+        builder.appendMultipleHeight("○○○○電機\n".getBytes(encoding), 3);
 
         builder.appendMultipleHeight("修理報告書　兼領収書\n".getBytes(encoding), 2);
 
@@ -65,14 +67,13 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "--------------------------------\n" +
+                        "--------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "         ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                         "お名前：池西　静子　様\n" +
-                        "御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　５３６番地\n" +
+                        "御住所：静岡市駿河区中吉田\n" +
                         "伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -129,7 +130,9 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendEmphasis(true);
 
-        builder.appendMultipleHeight("スター電機\n".getBytes(encoding), 3);
+        builder.append(("[サンプル印刷]\n").getBytes(encoding));
+
+        builder.appendMultipleHeight("○○○○電機\n".getBytes(encoding), 3);
 
         builder.appendMultipleHeight("修理報告書　兼領収書\n".getBytes(encoding), 2);
 
@@ -138,14 +141,13 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "------------------------------------------------\n" +
+                        "------------------------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "           ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -202,7 +204,9 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendEmphasis(true);
 
-        builder.appendMultipleHeight("スター電機\n".getBytes(encoding), 3);
+        builder.append(("[サンプル印刷]\n").getBytes(encoding));
+
+        builder.appendMultipleHeight("○○○○電機\n".getBytes(encoding), 3);
 
         builder.appendMultipleHeight("修理報告書　兼領収書\n".getBytes(encoding), 2);
 
@@ -211,14 +215,13 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "---------------------------------------------------------------------\n" +
+                        "---------------------------------------------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "           ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "この度は修理をご用命頂き有難うございます。\n" +
@@ -249,16 +252,16 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap create2inchRasterReceiptImage() {
         String textToPrint =
-                "　　　　　　スター電機\n" +
+                        "　　　　　 [サンプル印刷]\n" +
+                        "　　　　　　○○○○電機\n" +
                         "　　　　修理報告書　兼領収書\n" +
                         "----------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -288,16 +291,16 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap create3inchRasterReceiptImage() {
         String textToPrint =
-                "　　　　　　　　　　スター電機\n" +
+                        "　　　　　　　 　　[サンプル印刷]\n" +
+                        "　　　　　　　　　　○○○○電機\n" +
                         "　　　　　　　　修理報告書　兼領収書\n" +
                         "---------------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -327,16 +330,16 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap create4inchRasterReceiptImage() {
         String textToPrint =
-                "　　　　　　　　　　　　　　　スター電機\n" +
+                        "　　　　　　　　　　 　　　　[サンプル印刷]\n" +
+                        "　　　　　　　　　　　　　　　○○○○電機\n" +
                         "　　　　　　　　　　　　　修理報告書　兼領収書\n" +
                         "---------------------------------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -371,17 +374,17 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap createEscPos3inchRasterReceiptImage() {
         String textToPrint =
-                "\n" +
-                "　　　　　　　 スター電機\n" +
+                        "\n" +
+                        "　　　　　　　[サンプル印刷]\n" +
+                        "　　　　　　　 ○○○○電機\n" +
                         "　　　　　 修理報告書　兼領収書\n" +
                         "-----------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -440,7 +443,9 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
 
         builder.append("\n".getBytes());
 
-        builder.appendMultipleHeight("スター電機\n".getBytes(encoding), 3);
+        builder.append(("[サンプル印刷]\n").getBytes(encoding));
+
+        builder.appendMultipleHeight("○○○○電機\n".getBytes(encoding), 3);
 
         builder.appendMultipleHeight("修理報告書　兼領収書\n".getBytes(encoding), 2);
 
@@ -449,14 +454,13 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "------------------------------------------\n" +
+                        "------------------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "           ｲｹﾆｼ  ｼｽﾞｺ   ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -511,21 +515,22 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendEmphasis(true);
 
-        builder.appendMultipleHeight("スター電機\n修理報告書　兼領収書\n".getBytes(encoding), 2);
+        builder.append(("[サンプル印刷]\n").getBytes(encoding));
+
+        builder.appendMultipleHeight("○○○○電機\n修理報告書　兼領収書\n".getBytes(encoding), 2);
 
         builder.appendEmphasis(false);
 
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "------------------------------------------\n" +
+                        "------------------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "        ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                         "　お名前：池西  静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +
@@ -550,16 +555,16 @@ public class JapaneseReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap createSk12inchRasterReceiptImage() {
         String textToPrint =
-                "  　　　　　　スター電機\n" +
+                        "  　　　　  [サンプル印刷]\n" +
+                        "  　　　　　　○○○○電機\n" +
                         "　　　　  修理報告書　兼領収書\n" +
                         "---------------------------------\n" +
                         "発行日時：YYYY年MM月DD日HH時MM分\n" +
-                        "TEL：054-347-XXXX\n" +
+                        "TEL：054-263-XXXX\n" +
                         "\n" +
                         "　　　　　ｲｹﾆｼ  ｼｽﾞｺ  ｻﾏ\n" +
                         "　お名前：池西　静子　様\n" +
-                        "　御住所：静岡市清水区七ツ新屋\n" +
-                        "　　　　　５３６番地\n" +
+                        "　御住所：静岡市駿河区中吉田\n" +
                         "　伝票番号：No.12345-67890\n" +
                         "\n" +
                         "　この度は修理をご用命頂き有難うございます。\n" +

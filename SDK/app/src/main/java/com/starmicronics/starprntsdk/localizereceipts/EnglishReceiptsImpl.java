@@ -46,8 +46,10 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendAlignment(AlignmentPosition.Center);
 
+        builder.append(("[Sample receipt]\n").getBytes(encoding));
+
         builder.append((
-                "Star Clothing Boutique\n" +
+                        "**** Boutique\n" +
                         "123 Star Road\n" +
                         "City, State 12345\n" +
                         "\n").getBytes(encoding));
@@ -55,7 +57,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "Date:MM/DD/YYYY    Time:HH:MM PM\n" +
+                        "Date:MM/DD/YYYY    Time:HH:MM PM\n" +
                         "--------------------------------\n" +
                         "\n").getBytes(encoding));
 
@@ -121,8 +123,10 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendAlignment(AlignmentPosition.Center);
 
+        builder.append(("[Sample receipt]\n").getBytes(encoding));
+
         builder.append((
-                "Star Clothing Boutique\n" +
+                        "**** Boutique\n" +
                         "123 Star Road\n" +
                         "City, State 12345\n" +
                         "\n").getBytes(encoding));
@@ -130,14 +134,14 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "Date:MM/DD/YYYY                    Time:HH:MM PM\n" +
+                        "Date:MM/DD/YYYY                    Time:HH:MM PM\n" +
                         "------------------------------------------------\n" +
                         "\n").getBytes(encoding));
 
         builder.appendEmphasis(("SALE\n").getBytes(encoding));
 
         builder.append((
-                "SKU               Description              Total\n" +
+                        "SKU               Description              Total\n" +
                         "300678566         PLAIN T-SHIRT            10.99\n" +
                         "300692003         BLACK DENIM              29.99\n" +
                         "300651148         BLUE DENIM               29.99\n" +
@@ -153,7 +157,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendMultiple(("   $156.95\n").getBytes(encoding), 2, 2);
 
         builder.append((
-                "------------------------------------------------\n" +
+                        "------------------------------------------------\n" +
                         "\n" +
                         "Charge\n" +
                         "156.95\n" +
@@ -169,7 +173,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.append((" with receipt\n").getBytes(encoding));
 
         builder.append((
-                "And tags attached\n" +
+                        "And tags attached\n" +
                         "\n").getBytes(encoding));
 
         builder.appendAlignment(AlignmentPosition.Center);
@@ -198,8 +202,10 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendAlignment(AlignmentPosition.Center);
 
+        builder.append(("[Sample receipt]\n").getBytes(encoding));
+
         builder.append((
-                "Star Clothing Boutique\n" +
+                        "**** Boutique\n" +
                         "123 Star Road\n" +
                         "City, State 12345\n" +
                         "\n").getBytes(encoding));
@@ -207,14 +213,14 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "Date:MM/DD/YYYY                                         Time:HH:MM PM\n" +
+                        "Date:MM/DD/YYYY                                         Time:HH:MM PM\n" +
                         "---------------------------------------------------------------------\n" +
                         "\n").getBytes(encoding));
 
         builder.appendEmphasis(("SALE\n").getBytes(encoding));
 
         builder.append((
-                "SKU                        Description                          Total\n" +
+                        "SKU                        Description                          Total\n" +
                         "300678566                  PLAIN T-SHIRT                        10.99\n" +
                         "300692003                  BLACK DENIM                          29.99\n" +
                         "300651148                  BLUE DENIM                           29.99\n" +
@@ -246,7 +252,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.append((" with receipt\n").getBytes(encoding));
 
         builder.append((
-                "And tags attached\n" +
+                        "And tags attached\n" +
                         "\n").getBytes(encoding));
 
         builder.appendAlignment(AlignmentPosition.Center);
@@ -257,7 +263,8 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap create2inchRasterReceiptImage() {
         String textToPrint =
-                "   Star Clothing Boutique\n" +
+                "       [Sample receipt]\n" +
+                "        **** Boutique\n" +
                 "        123 Star Road\n" +
                 "      City, State 12345\n" +
                 "\n" +
@@ -293,7 +300,8 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap create3inchRasterReceiptImage() {
         String textToPrint =
-                "        Star Clothing Boutique\n" +
+                "            [Sample receipt]\n" +
+                "             **** Boutique\n" +
                 "             123 Star Road\n" +
                 "           City, State 12345\n" +
                 "\n" +
@@ -329,7 +337,8 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap create4inchRasterReceiptImage() {
         String textToPrint =
-                "                   Star Clothing Boutique\n" +
+                "                       [Sample receipt]\n" +
+                "                        **** Boutique\n" +
                 "                        123 Star Road\n" +
                 "                      City, State 12345\n" +
                 "\n" +
@@ -371,7 +380,8 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
     public Bitmap createEscPos3inchRasterReceiptImage() {
         String textToPrint =
                 "\n" +
-                "      Star Clothing Boutique\n" +
+                "          [Sample receipt]\n" +
+                "           **** Boutique\n" +
                 "           123 Star Road\n" +
                 "         City, State 12345\n" +
                 "\n" +
@@ -425,9 +435,10 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendAlignment(AlignmentPosition.Center);
 
+        builder.append(("[Sample receipt]\n").getBytes(encoding));
+
         builder.append((
-                "\n" +
-                "Star Clothing Boutique\n" +
+                        "**** Boutique\n" +
                         "123 Star Road\n" +
                         "City, State 12345\n" +
                         "\n").getBytes(encoding));
@@ -442,7 +453,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendEmphasis(("SALE \n").getBytes(encoding));
 
         builder.append((
-                "SKU            Description           Total\n" +
+                        "SKU            Description           Total\n" +
                         "300678566      PLAIN T-SHIRT         10.99\n" +
                         "300692003      BLACK DENIM           29.99\n" +
                         "300651148      BLUE DENIM            29.99\n" +
@@ -458,7 +469,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendMultiple(("   $156.95\n").getBytes(encoding), 2, 2);
 
         builder.append((
-                "------------------------------------------\n" +
+                        "------------------------------------------\n" +
                         "\n" +
                         "Charge\n" +
                         "156.95\n" +
@@ -474,7 +485,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.append((" with receipt\n").getBytes(encoding));
 
         builder.append((
-                "And tags attached\n" +
+                        "And tags attached\n" +
                         "\n").getBytes(encoding));
 
         builder.appendAlignment(AlignmentPosition.Center);
@@ -503,8 +514,10 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendAlignment(AlignmentPosition.Center);
 
+        builder.append(("[Sample receipt]\n").getBytes(encoding));
+ 
         builder.append((
-                "Star Clothing Boutique\n" +
+                        "**** Boutique\n" +
                         "123 Star Road\n" +
                         "City, State 12345\n" +
                         "\n").getBytes(encoding));
@@ -512,14 +525,14 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "Date:MM/DD/YYYY              Time:HH:MM PM\n" +
+                        "Date:MM/DD/YYYY              Time:HH:MM PM\n" +
                         "------------------------------------------\n" +
                         "\n").getBytes(encoding));
 
         builder.appendEmphasis(("SALE \n").getBytes(encoding));
 
         builder.append((
-                "SKU             Description          Total\n" +
+                        "SKU             Description          Total\n" +
                         "300678566       PLAIN T-SHIRT        10.99\n" +
                         "300692003       BLACK DENIM          29.99\n" +
                         "300651148       BLUE DENIM           29.99\n" +
@@ -549,7 +562,8 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
     @Override
     public Bitmap createSk12inchRasterReceiptImage() {
         String textToPrint =
-                "     Star Clothing Boutique\n" +
+                        "         [Sample receipt]\n" +
+                        "          **** Boutique\n" +
                         "          123 Star Road\n" +
                         "        City, State 12345\n" +
                         "\n" +
@@ -603,8 +617,10 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
 
         builder.appendAlignment(AlignmentPosition.Center);
 
+        builder.append(("[Sample receipt]\n").getBytes(encoding));
+
         builder.append((
-                "Star Clothing Boutique\n" +
+                        "**** Boutique\n" +
                         "123 Star Road\n" +
                         "City, State 12345\n" +
                         "\n").getBytes(encoding));
@@ -612,12 +628,12 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendAlignment(AlignmentPosition.Left);
 
         builder.append((
-                "Date:MM/DD/YYYY        Time:HH:MM PM\n" +
+                        "Date:MM/DD/YYYY        Time:HH:MM PM\n" +
                         "------------------------------------\n" +
                         "\n").getBytes(encoding));
 
         builder.append((
-                "SKU           Description      Total\n" +
+                        "SKU           Description      Total\n" +
                         "300678566     PLAIN T-SHIRT    10.99\n" +
                         "300692003     BLACK DENIM      29.99\n" +
                         "300651148     BLUE DENIM       29.99\n" +
@@ -633,7 +649,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.appendMultiple(("      $156.95\n").getBytes(encoding), 2, 2);
 
         builder.append((
-                "------------------------------------\n" +
+                        "------------------------------------\n" +
                         "\n" +
                         "Charge\n" +
                         "156.95\n" +
@@ -649,7 +665,7 @@ public class EnglishReceiptsImpl extends ILocalizeReceipts {
         builder.append((" with receipt\n").getBytes(encoding));
 
         builder.append((
-                "And tags attached\n" +
+                        "And tags attached\n" +
                         "\n").getBytes(encoding));
 
         builder.appendAlignment(AlignmentPosition.Center);

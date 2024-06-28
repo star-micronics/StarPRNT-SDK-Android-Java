@@ -73,7 +73,12 @@ public class AutoSwitchInterfaceExtFragment extends Fragment implements CommonAl
         PrinterSettings       settings       = settingManager.getPrinterSettings();
 
         // Specifying AutoSwitch: for portName allows you to automatically select the interface for connecting to the printer.
-        mStarIoExtManager = new StarIoExtManager(StarIoExtManager.Type.WithBarcodeReader, "AutoSwitch:", settings.getPortSettings(), 10000, getActivity());     // 10000mS!!!
+        if (ModelCapability.canUseBarcodeReader(settings.getModelIndex())) {
+            mStarIoExtManager = new StarIoExtManager(StarIoExtManager.Type.WithBarcodeReader, "AutoSwitch:", settings.getPortSettings(), 10000, getActivity());
+        }
+        else {
+            mStarIoExtManager = new StarIoExtManager(StarIoExtManager.Type.Standard, "AutoSwitch:", settings.getPortSettings(), 10000, getActivity());
+        }
         mStarIoExtManager.setCashDrawerOpenActiveHigh(settings.getCashDrawerOpenActiveHigh());
     }
 

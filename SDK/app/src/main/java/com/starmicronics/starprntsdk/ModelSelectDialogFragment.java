@@ -53,6 +53,7 @@ public class ModelSelectDialogFragment extends CommonAlertDialogFragment {
                 "SM-L200",
                 "SM-L300",
                 "BSC10",
+                "BSC10II",
                 "SM-S210i StarPRNT",
                 "SM-S220i StarPRNT",
                 "SM-S230i StarPRNT",
@@ -97,15 +98,16 @@ public class ModelSelectDialogFragment extends CommonAlertDialogFragment {
                 case 17: model = ModelCapability.SM_L200; break;
                 case 18: model = ModelCapability.SM_L300; break;
                 case 19: model = ModelCapability.BSC10; break;
-                case 20: model = ModelCapability.SM_S210I_StarPRNT; break;
-                case 21: model = ModelCapability.SM_S220I_StarPRNT; break;
-                case 22: model = ModelCapability.SM_S230I_StarPRNT; break;
-                case 23: model = ModelCapability.SM_T300I_T300_StarPRNT; break;
-                case 24: model = ModelCapability.SM_T400I_StarPRNT; break;
-                case 25: model = ModelCapability.SK1_211_221_V211; break;
-                case 26: model = ModelCapability.SK1_211_221_V211_Presenter; break;
-                case 27: model = ModelCapability.SK1_311_321_V311; break;
-                case 28: model = ModelCapability.SK1_311_V311_Presenter; break;
+                case 20: model = ModelCapability.BSC10II; break;
+                case 21: model = ModelCapability.SM_S210I_StarPRNT; break;
+                case 22: model = ModelCapability.SM_S220I_StarPRNT; break;
+                case 23: model = ModelCapability.SM_S230I_StarPRNT; break;
+                case 24: model = ModelCapability.SM_T300I_T300_StarPRNT; break;
+                case 25: model = ModelCapability.SM_T400I_StarPRNT; break;
+                case 26: model = ModelCapability.SK1_211_221_V211; break;
+                case 27: model = ModelCapability.SK1_211_221_V211_Presenter; break;
+                case 28: model = ModelCapability.SK1_311_321_V311; break;
+                case 29: model = ModelCapability.SK1_311_V311_Presenter; break;
             }
 
             Intent intentForPassingData = new Intent();

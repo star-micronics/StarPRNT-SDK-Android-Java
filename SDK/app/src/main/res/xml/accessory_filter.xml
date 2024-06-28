@@ -5,5 +5,6 @@
     <usb-accessory model="mC-Label3" manufacturer="Star Micronics"/>
     <usb-accessory model="mC-Print3" manufacturer="Star Micronics"/>
     <usb-accessory model="mPOP" manufacturer="Star Micronics"/>
+    <usb-accessory model="BSC10II" manufacturer="Star Micronics"/>
 </resources>
 

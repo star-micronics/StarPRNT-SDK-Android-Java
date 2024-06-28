@@ -1,3 +1,19 @@
+# V5.18.0
+
+## stario
+- Added features
+  * Supported BSC10II.
+
+## starioextension
+- Added features
+  * ICommandBuilder Class : CutPaperAction.TearOff
+  * ICommandBuilder Class : InternationalType.India
+
+## SDK
+- Added Sample Codes
+  * Supported BSC10II.
+
+
 # V5.17.1
 
 ## stario
