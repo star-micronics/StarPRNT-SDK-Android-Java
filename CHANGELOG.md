@@ -2,7 +2,7 @@
 
 ## stario
 - Added features
-  * Supported BSC10II.
+  * Supported BSC10II (Limited region model).
 
 ## starioextension
 - Added features
@@ -11,7 +11,7 @@
 
 ## SDK
 - Added Sample Codes
-  * Supported BSC10II.
+  * Supported BSC10II (Limited region model).
 
 
 # V5.17.1
