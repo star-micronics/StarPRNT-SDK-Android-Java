@@ -1125,7 +1125,10 @@ public class ModelCapability {
                     new String[]{                                   // modelNameArray
                             "TSP143IV (STR-001)",                   // <-LAN interface
                             "Star TSP143IV-UE",                     // <-USB interface
-                            "Star TSP143IV-UE SK"},
+                            "Star TSP143IV-UE SK",
+                            "Star TSP143IV-UEWB",
+                            "Star TSP143IV-UEWB SK",
+                            "TSP100IV-"},                           // <-Bluetooth interface
                     Emulation.StarPRNT,                             // Emulation
                     "",                                             // Default portSettings
                     PrinterSettingConstant.PAPER_SIZE_THREE_INCH,   // Default paper size

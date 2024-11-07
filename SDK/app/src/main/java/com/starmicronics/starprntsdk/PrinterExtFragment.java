@@ -28,7 +28,7 @@ import com.starmicronics.starioextension.StarIoExtManagerListener;
 import com.starmicronics.starprntsdk.functions.PrinterFunctions;
 import com.starmicronics.starprntsdk.localizereceipts.ILocalizeReceipts;
 
-public class PrinterExtFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class PrinterExtFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String OPEN_FAILURE_DIALOG = "OpenFailureDialog";
 

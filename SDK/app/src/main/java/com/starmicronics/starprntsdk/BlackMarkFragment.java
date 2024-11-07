@@ -24,7 +24,7 @@ import static com.starmicronics.starioextension.ICommandBuilder.BlackMarkType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackMarkFragment extends Fragment implements ListView.OnItemClickListener, CommonAlertDialogFragment.Callback {
+public class BlackMarkFragment extends CommonFragment implements ListView.OnItemClickListener, CommonAlertDialogFragment.Callback {
 
     private ProgressDialog mProgressDialog;
 

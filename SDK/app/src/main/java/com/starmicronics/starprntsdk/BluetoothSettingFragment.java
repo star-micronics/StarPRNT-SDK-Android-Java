@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class BluetoothSettingFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class BluetoothSettingFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private enum FwInfoSMSorTSeries {
         V4orEarlier,

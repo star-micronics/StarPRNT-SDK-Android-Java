@@ -18,7 +18,7 @@ import com.starmicronics.starioextension.StarIoExt;
 import com.starmicronics.starprntsdk.functions.PrinterFunctions;
 import com.starmicronics.starprntsdk.localizereceipts.ILocalizeReceipts;
 
-public class AutoSwitchInterfaceFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class AutoSwitchInterfaceFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private ProgressDialog mProgressDialog;
 

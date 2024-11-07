@@ -39,7 +39,7 @@ import com.starmicronics.starioextension.StarIoExt.MelodySpeakerModel;
 
 import com.starmicronics.starprntsdk.functions.MelodySpeakerFunctions;
 
-public class MelodySpeakerFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class MelodySpeakerFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String ERROR_DIALOG = "ErrorDialog";
 

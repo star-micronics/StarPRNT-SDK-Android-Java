@@ -3,6 +3,8 @@ package com.starmicronics.starprntsdk;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import androidx.core.view.WindowCompat;
+
 @SuppressWarnings("SimplifiableIfStatement")
 public class MainActivity extends CommonActivity {
     @Override

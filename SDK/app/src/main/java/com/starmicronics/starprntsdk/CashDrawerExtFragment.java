@@ -26,7 +26,7 @@ import com.starmicronics.starioextension.StarIoExtManager;
 import com.starmicronics.starioextension.StarIoExtManagerListener;
 import com.starmicronics.starprntsdk.functions.CashDrawerFunctions;
 
-public class CashDrawerExtFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class CashDrawerExtFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String OPEN_FAILURE_DIALOG = "OpenFailureDialog";
 

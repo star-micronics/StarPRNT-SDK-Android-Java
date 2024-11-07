@@ -32,7 +32,7 @@ import com.starmicronics.starprntsdk.functions.PresenterFunctions;
 import com.starmicronics.starprntsdk.functions.PrinterFunctions;
 import com.starmicronics.starprntsdk.localizereceipts.ILocalizeReceipts;
 
-public class PresenterFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class PresenterFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String ERROR_DIALOG = "ErrorDialog";
 

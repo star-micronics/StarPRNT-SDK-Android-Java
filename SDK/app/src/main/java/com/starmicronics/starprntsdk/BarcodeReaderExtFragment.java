@@ -25,7 +25,7 @@ import com.starmicronics.starioextension.StarIoExtManagerListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BarcodeReaderExtFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class BarcodeReaderExtFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String OPEN_FAILURE_DIALOG = "OpenFailureDialog";
 

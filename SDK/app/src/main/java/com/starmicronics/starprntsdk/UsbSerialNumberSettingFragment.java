@@ -19,7 +19,7 @@ import android.widget.RadioGroup;
 import com.starmicronics.starprntsdk.Communication.CommunicationResult;
 import com.starmicronics.starprntsdk.Communication.Result;
 
-public class UsbSerialNumberSettingFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class UsbSerialNumberSettingFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private ProgressDialog mProgressDialog;
 

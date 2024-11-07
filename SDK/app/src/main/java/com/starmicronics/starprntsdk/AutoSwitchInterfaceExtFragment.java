@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AutoSwitchInterfaceExtFragment extends Fragment implements CommonAlertDialogFragment.Callback  {
+public class AutoSwitchInterfaceExtFragment extends CommonFragment implements CommonAlertDialogFragment.Callback  {
 
     private static final String OPEN_FAILURE_DIALOG = "OpenFailureDialog";
 

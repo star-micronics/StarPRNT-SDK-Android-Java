@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class TitleFragment extends Fragment {
+public class TitleFragment extends CommonFragment {
     Timer mTimer;
 
     public TitleFragment() {

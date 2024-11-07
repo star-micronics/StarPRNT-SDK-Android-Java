@@ -32,7 +32,7 @@ import com.starmicronics.starioextension.IDisplayCommandBuilder.ContrastMode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayExtFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class DisplayExtFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
     private enum PeripheralStatus {
         Invalid,
         Impossible,

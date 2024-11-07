@@ -31,7 +31,7 @@ import java.util.List;
 
 import static com.starmicronics.starioextension.ICommandBuilder.BitmapConverterRotation;
 
-public class CombinationExtFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class CombinationExtFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String OPEN_FAILURE_DIALOG = "OpenFailureDialog";
 

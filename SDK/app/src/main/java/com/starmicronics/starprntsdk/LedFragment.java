@@ -28,7 +28,7 @@ import com.starmicronics.starprntsdk.localizereceipts.ILocalizeReceipts;
 import java.util.Arrays;
 import java.util.List;
 
-public class LedFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class LedFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private static final String ERROR_DIALOG = "ErrorDialog";
 

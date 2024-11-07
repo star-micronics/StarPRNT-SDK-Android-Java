@@ -21,7 +21,7 @@ import com.starmicronics.starprntsdk.localizereceipts.ILocalizeReceipts;
 import static com.starmicronics.starioextension.StarIoExt.Emulation;
 import static com.starmicronics.starioextension.ICommandBuilder.BlackMarkType;
 
-public class BlackMarkPasteFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class BlackMarkPasteFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
 
     private ProgressDialog mProgressDialog;
 

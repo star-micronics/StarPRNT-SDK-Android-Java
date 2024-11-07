@@ -18,7 +18,7 @@ import com.starmicronics.starprntsdk.Communication.CommunicationResult;
 
 import java.util.List;
 
-public class HoldPrintFragment extends Fragment implements CommonAlertDialogFragment.Callback {
+public class HoldPrintFragment extends CommonFragment implements CommonAlertDialogFragment.Callback {
     private Spinner mHoldingControlSpinner;
 
     private boolean[] mIsHoldArray;

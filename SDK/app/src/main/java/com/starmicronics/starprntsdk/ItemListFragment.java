@@ -15,7 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemListFragment extends Fragment implements ListView.OnItemClickListener, CompoundButton.OnCheckedChangeListener {
+public class ItemListFragment extends CommonFragment implements ListView.OnItemClickListener, CompoundButton.OnCheckedChangeListener {
 
     protected List<ItemList> list;
     protected ArrayAdapter<ItemList> adapter;
