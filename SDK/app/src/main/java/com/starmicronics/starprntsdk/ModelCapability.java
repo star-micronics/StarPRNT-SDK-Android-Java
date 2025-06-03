@@ -58,6 +58,9 @@ public class ModelCapability {
     // V5.18.0
     public static final int BSC10II                    = 29;
 
+    // V5.20.0
+    public static final int MC_LABEL2                  = 30;
+
     static class ModelInfo {
         String    modelTitle;
         String[]  modelNameArray;
@@ -228,6 +231,43 @@ public class ModelCapability {
                     true                                            // canUseAutoSwitchInterface
             ));
 
+            put(MC_LABEL2, new ModelInfo(
+                    "mC-Label2",                                    // modelTitle
+                    new String[]{                                   // modelNameArray
+                            "MCL21 (STR-001)",                      // <-LAN interface
+                            "mC-Label2-",                           // <-Bluetooth interface
+                            "mC-Label2",                            // <-USB interface
+                            "MCL21"},                               // <-USB interface
+                    Emulation.StarPRNT,                             // Emulation
+                    "",                                             // Default portSettings
+                    PrinterSettingConstant.PAPER_SIZE_THREE_INCH,   // Default paper size
+                    false,                                          // canSetDrawerOpenStatus
+                    true,                                           // canPrintTextReceiptSample
+                    true,                                           // canPrintUtf8EncodedText
+                    true,                                           // canPrintRasterReceiptSample
+                    true,                                           // canPrintCjk
+                    true,                                           // canUseBlackMark
+                    true,                                           // canUseBlackMarkDetection
+                    true,                                           // canUsePageMode
+                    false,                                          // canUseCashDrawer
+                    true,                                           // canUseBarcodeReader
+                    true,                                           // canUseCustomerDisplay
+                    false,                                          // canUsePresenter
+                    false,                                          // canUseLed
+                    LedModel.None,                                  // ledModel
+                    false,                                          // canUseBlinkLed
+                    true,                                           // canUsePaperPresentStatus
+                    true,                                           // canGetProductSerialNumber
+                    0,                                              // settableUsbSerialNumberLength (This printer supports the USB serial number function, but the serial number change function of this sample app is not available for the printer. Please use the Star Configuration or Star Quick Setup Utility for the change function instead.)
+                    true,                                           // isUsbSerialNumberEnabledByDefault
+                    false,                                          // canUseMelodySpeaker
+                    -1,                                             // defaultSoundNumber
+                    -1,                                             // defaultVolume
+                    -1,                                             // volumeMax
+                    -1,                                             // volumeMin
+                    true                                            // canUseAutoSwitchInterface
+            ));
+
             put(MC_LABEL3, new ModelInfo(
                     "mC-Label3",                                    // modelTitle
                     new String[]{                                   // modelNameArray
@@ -255,7 +295,7 @@ public class ModelCapability {
                     false,                                          // canUseBlinkLed
                     true,                                           // canUsePaperPresentStatus
                     true,                                           // canGetProductSerialNumber
-                    16,                                             // settableUsbSerialNumberLength
+                    0,                                              // settableUsbSerialNumberLength (This printer supports the USB serial number function, but the serial number change function of this sample app is not available for the printer. Please use the Star Configuration or Star Quick Setup Utility for the change function instead.)
                     true,                                           // isUsbSerialNumberEnabledByDefault
                     false,                                           // canUseMelodySpeaker
                     0,                                              // defaultSoundNumber
@@ -1296,10 +1336,6 @@ public class ModelCapability {
     }
 
     public static int settableUsbSerialNumberLength(int model, String modelName, boolean isUsbInterface) {
-        if (model == MC_LABEL3) {   // mC-Label3 can not use the USB serial number setting sample in this SDK.
-            return 0;
-        }
-
         int length = mModelCapabilityMap.get(model).settableUsbSerialNumberLength;
 
         if (model == TSP100) {

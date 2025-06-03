@@ -1,3 +1,30 @@
+# Ver 5.20.0 (2025/05/19)
+
+## StarIO
+- Android16に対応（プラットフォーム安定版で動作確認）
+- 機能追加
+    * mC-Label2に対応
+
+## StarIOExtension
+- Android16に対応（プラットフォーム安定版で動作確認）
+- 機能追加
+    * ICommandBuilderクラス : appendTextBaseMagnificationメソッドを追加
+    * ICommandBuilderクラス : BarcodeWidthの列挙型を拡張
+    * ICommandBuilderクラス : appendCutPaperメソッドの出力に改行コードの付与を選択可能に変更
+
+## StarIODeviceSetting
+- Android16に対応（プラットフォーム安定版で動作確認）
+
+## SDK
+- Android16に対応（プラットフォーム安定版で動作確認）
+- サンプルコードの追加
+    * mC-Label2に対応
+
+stario (Ver. 2.14.0) <br>
+starioextension (Ver. 1.17.0)<br>
+StarIODeviceSetting (Ver. 1.0.4)
+
+
 # Ver.5.19.0 (2024/11/01)
 
 ## StarIO
@@ -36,6 +63,10 @@ StarIODeviceSetting (Ver. 1.0.3)
 - サンプルコードの追加
     * BSC10IIに対応（日本国内では販売しておりません）
 
+stario (Ver. 2.12.0) <br>
+starioextension (Ver. 1.16.0)<br>
+StarIODeviceSetting (Ver. 1.0.2)
+
 
 # Ver.5.17.1 (2024/02/09)
 
@@ -64,6 +95,10 @@ StarIODeviceSetting (Ver. 1.0.3)
 ## SDK
 - Android14をサポート
 
+stario (Ver. 2.11.2) <br>
+starioextension (Ver. 1.15.2)<br>
+StarIODeviceSetting (Ver. 1.0.2)
+
 
 # Ver.5.17.0 (2023/09/08)
 
@@ -81,7 +116,7 @@ StarIODeviceSetting (Ver. 1.0.3)
 
 stario (Ver. 2.11.1)<br>
 starioextension (Ver. 1.15.1)<br>
-StarIODeviceSetting (Ver. 1.0.0)
+StarIODeviceSetting (Ver. 1.0.1)
 
 
 # Ver.5.16.0 (2023/03/31)
@@ -138,6 +173,11 @@ StarIODeviceSetting (Ver. 1.0.0)
 ## StarIODeviceSetting
 - 新規作成
 
+stario (Ver. 2.9.0) <br>
+starioextension (Ver. 1.15.0) <br>
+smcloudservices (Ver. 1.4.1)<br>
+StarIODeviceSetting (Ver. 1.0.0)
+
 
 ## Ver.5.14.0 (2020/06/17)
 
@@ -158,8 +198,7 @@ StarIODeviceSetting (Ver. 1.0.0)
 
 stario (Ver. 2.9.0) <br>
 starioextension (Ver. 1.15.0) <br>
-smcloudservices (Ver. 1.4.1)<br>
-StarIODeviceSetting (Ver. 1.0.0)
+smcloudservices (Ver. 1.4.1)
 
 
 # Ver 5.13.0 (2019/12/25)

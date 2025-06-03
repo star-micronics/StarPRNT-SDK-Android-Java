@@ -1,3 +1,30 @@
+# Ver.5.20.0 (2025/05/19)
+
+## StarIO
+- Support Android 16 (tested on platform stability version).
+- Added Features
+    * Supported mC-Label2.
+
+## StarIOExtension
+- Support Android 16 (tested on platform stability version).
+- Changed Features
+    * ICommandBuilder Class : Added appendBaseTextMagnification function.
+    * ICommandBuilder Class : Extended BarcodeWidth enum.
+    * ICommandBuilder Class : Changed to allow selection of adding line feed code to the output of AppendCutPaper function.
+
+## StarIODeviceSetting
+- Support Android 16 (tested on platform stability version).
+
+## SDK
+- Support Android 16 (tested on platform stability version).
+- Added Sample Codes
+    * Supported mC-Label2.
+
+stario (Ver. 2.14.0) <br>
+starioextension (Ver. 1.17.0)<br>
+StarIODeviceSetting (Ver. 1.0.4)
+
+
 # Ver.5.19.0 (2024/11/01)
 
 ## StarIO
@@ -23,17 +50,22 @@ StarIODeviceSetting (Ver. 1.0.3)
 
 # V5.18.0 (2024/06/24)
 
-## SDK
-- Added Sample Codes
-  * Supported BSC10II (Limited region model).
-
 ## StarIO
 - Added features
   * Supported BSC10II (Limited region model).
 
 ## StarIOExtension
+- Added Features
+  * ICommandBuilder Class : CutPaperAction.TearOff
+  * ICommandBuilder Class : InternationalType.India
+
+## SDK
 - Added Sample Codes
   * Supported BSC10II (Limited region model).
+
+stario (Ver. 2.12.0) <br>
+starioextension (Ver. 1.16.0)<br>
+StarIODeviceSetting (Ver. 1.0.2)
 
 
 # V5.17.1 (2024/02/09)
@@ -65,6 +97,10 @@ StarIODeviceSetting (Ver. 1.0.3)
 ## SDK
 - Support Android14
 
+stario (Ver. 2.11.2) <br>
+starioextension (Ver. 1.15.2)<br>
+StarIODeviceSetting (Ver. 1.0.2)
+
 
 # V5.17.0 (2023/09/08)
 
@@ -81,7 +117,7 @@ StarIODeviceSetting (Ver. 1.0.3)
 
 stario (Ver. 2.11.1) <br>
 starioextension (Ver. 1.15.1)<br>
-StarIODeviceSetting (Ver. 1.0.0)
+StarIODeviceSetting (Ver. 1.0.1)
 
 
 # V5.16.0 (2023/03/31)
@@ -138,6 +174,11 @@ StarIODeviceSetting (Ver. 1.0.0)
 
 ## StarIODeviceSetting
 - New
+
+stario (Ver. 2.9.0) <br>
+starioextension (Ver. 1.15.0) <br>
+smcloudservices (Ver. 1.4.1)<br>
+StarIODeviceSetting (Ver. 1.0.0)
 
 
 # V5.14.0 (2020/06/17)

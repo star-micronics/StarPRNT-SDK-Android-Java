@@ -6,7 +6,20 @@ This package contains StarPRNT SDK for supporting to develop applications for St
 
 Please refer to the [StarPRNT SDK document](https://www.star-m.jp/starprntsdk-oml-android.html) for supported OS, development environment, and supported printers.
 
+## important
+
+### Considerations when using mC-Label2
+
+| Printer                             | Paper Size            | DPI                   |
+| ----------------------------------- | --------------------- | --------------------- |
+| mC-Label2                           | 2 inch (576 dots)     | 300dpi                |
+| mC-Print2, mPOP, etc                | 2 inch (384 dots)     | 203dpi                |
+| mC-Label3, mC-Print3, TSP100IV, etc | 3 inch (576 dots)     | 203dpi                |
+
+Due to the differences in DPI above, the sample code based on a "3-inch (576 dots)" paper size will print on a 2-inch paper size in mC-Label2.
+
 ## Limitation
+
 1. Only the last connected USB printer can communicate with Android V5.0.
 
 2. Please use "PIN code enable" in Bluetooth security with SM-L200.
@@ -29,4 +42,4 @@ Beginning from StarIOPort3.1.jar V2.6.0 (StarPRNT SDK V5.11.0), the releasePort 
 
 ## Copyright
 
-Copyright 2016-2024 Star Micronics Co., Ltd. All rights reserved.
+Copyright 2016-2025 Star Micronics Co., Ltd. All rights reserved.

@@ -353,6 +353,19 @@ public final class SearchPortFragment extends ItemListFragment implements Common
 
             getActivity().finish();
         }
+        else if (mModelIndex == ModelCapability.MC_LABEL2) {
+            if (mPrinterSettingIndex == 0) {    // Destination device
+                mPaperSize = PrinterSettingConstant.PAPER_SIZE_THREE_INCH;
+            }
+            else {                              // Backup device
+                mPaperSize = destinationDevicePaperSize;
+            }
+
+            mDrawerOpenStatus = true;
+            registerPrinter();
+
+            getActivity().finish();
+        }
         else {
             if (mPrinterSettingIndex == 0) {    // Destination device
                 PaperSizeSelectDialogFragment dialog = PaperSizeSelectDialogFragment.newInstance(PAPER_SIZE_SELECT_DIALOG);

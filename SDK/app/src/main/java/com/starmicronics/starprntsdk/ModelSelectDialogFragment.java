@@ -35,6 +35,7 @@ public class ModelSelectDialogFragment extends CommonAlertDialogFragment {
         builder.setItems(new String[]{
                 "mC-Print2",
                 "mC-Print3",
+                "mC-Label2",
                 "mC-Label3",
                 "mPOP",
                 "FVP10",
@@ -80,34 +81,35 @@ public class ModelSelectDialogFragment extends CommonAlertDialogFragment {
             switch (which) {
                 case  0: model = ModelCapability.MC_PRINT2; break;
                 case  1: model = ModelCapability.MC_PRINT3; break;
-                case  2: model = ModelCapability.MC_LABEL3; break;
-                case  3: model = ModelCapability.MPOP; break;
-                case  4: model = ModelCapability.FVP10; break;
-                case  5: model = ModelCapability.TSP100; break;
-                case  6: model = ModelCapability.TSP100IV; break;
-                case  7: model = ModelCapability.TSP650II; break;
-                case  8: model = ModelCapability.TSP700II; break;
-                case  9: model = ModelCapability.TSP800II; break;
-                case 10: model = ModelCapability.TUP500; break;
-                case 11: model = ModelCapability.SP700; break;
-                case 12: model = ModelCapability.SM_S210I; break;
-                case 13: model = ModelCapability.SM_S220I; break;
-                case 14: model = ModelCapability.SM_S230I; break;
-                case 15: model = ModelCapability.SM_T300I_T300; break;
-                case 16: model = ModelCapability.SM_T400I; break;
-                case 17: model = ModelCapability.SM_L200; break;
-                case 18: model = ModelCapability.SM_L300; break;
-                case 19: model = ModelCapability.BSC10; break;
-                case 20: model = ModelCapability.BSC10II; break;
-                case 21: model = ModelCapability.SM_S210I_StarPRNT; break;
-                case 22: model = ModelCapability.SM_S220I_StarPRNT; break;
-                case 23: model = ModelCapability.SM_S230I_StarPRNT; break;
-                case 24: model = ModelCapability.SM_T300I_T300_StarPRNT; break;
-                case 25: model = ModelCapability.SM_T400I_StarPRNT; break;
-                case 26: model = ModelCapability.SK1_211_221_V211; break;
-                case 27: model = ModelCapability.SK1_211_221_V211_Presenter; break;
-                case 28: model = ModelCapability.SK1_311_321_V311; break;
-                case 29: model = ModelCapability.SK1_311_V311_Presenter; break;
+                case  2: model = ModelCapability.MC_LABEL2; break;
+                case  3: model = ModelCapability.MC_LABEL3; break;
+                case  4: model = ModelCapability.MPOP; break;
+                case  5: model = ModelCapability.FVP10; break;
+                case  6: model = ModelCapability.TSP100; break;
+                case  7: model = ModelCapability.TSP100IV; break;
+                case  8: model = ModelCapability.TSP650II; break;
+                case  9: model = ModelCapability.TSP700II; break;
+                case 10: model = ModelCapability.TSP800II; break;
+                case 11: model = ModelCapability.TUP500; break;
+                case 12: model = ModelCapability.SP700; break;
+                case 13: model = ModelCapability.SM_S210I; break;
+                case 14: model = ModelCapability.SM_S220I; break;
+                case 15: model = ModelCapability.SM_S230I; break;
+                case 16: model = ModelCapability.SM_T300I_T300; break;
+                case 17: model = ModelCapability.SM_T400I; break;
+                case 18: model = ModelCapability.SM_L200; break;
+                case 19: model = ModelCapability.SM_L300; break;
+                case 20: model = ModelCapability.BSC10; break;
+                case 21: model = ModelCapability.BSC10II; break;
+                case 22: model = ModelCapability.SM_S210I_StarPRNT; break;
+                case 23: model = ModelCapability.SM_S220I_StarPRNT; break;
+                case 24: model = ModelCapability.SM_S230I_StarPRNT; break;
+                case 25: model = ModelCapability.SM_T300I_T300_StarPRNT; break;
+                case 26: model = ModelCapability.SM_T400I_StarPRNT; break;
+                case 27: model = ModelCapability.SK1_211_221_V211; break;
+                case 28: model = ModelCapability.SK1_211_221_V211_Presenter; break;
+                case 29: model = ModelCapability.SK1_311_321_V311; break;
+                case 30: model = ModelCapability.SK1_311_V311_Presenter; break;
             }
 
             Intent intentForPassingData = new Intent();
