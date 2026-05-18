@@ -1,0 +1,298 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.starmicronics.starprntsdk.MelodySpeakerFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/layoutSelectRadioGroup"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/registeredSoundLayoutRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:background="@drawable/segmented_ctrl_radio_left"
+                android:button="@null"
+                android:checked="true"
+                android:duplicateParentState="false"
+                android:gravity="center"
+                android:textColor="@drawable/segmented_ctrl_radio_text_color"
+                android:textSize="18sp"
+                android:text="Registered Sound" />
+
+            <RadioButton
+                android:id="@+id/receivedDataLayoutRadioButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:gravity="center"
+                android:button="@null"
+                android:background="@drawable/segmented_ctrl_radio_right"
+                android:textColor="@drawable/segmented_ctrl_radio_text_color"
+                android:textSize="18sp"
+                android:text="Received Data" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Registered Sound Layout-->
+            <LinearLayout
+                android:id="@+id/registeredSoundLayout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="Sound Storage Area"/>
+
+                    <Spinner
+                        android:id="@+id/soundStorageAreaSpinner"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="end"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="Sound Number"/>
+
+                    <EditText
+                        android:id="@+id/soundNumberEditText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="20dp"
+                        android:gravity="end"
+                        android:digits="0123456789"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:imeOptions="actionDone"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="Volume"/>
+
+                    <Spinner
+                        android:id="@+id/registeredSoundVolumeSpinner"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="end"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/registeredSoundVolumeSeekBarContainer"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <SeekBar
+                        android:id="@+id/registeredSoundVolumeSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:max="15"/>
+
+                    <TextView
+                        android:id="@+id/registerdSoundVolumeTextView"
+                        android:layout_width="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:text=""/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/registeredSoundPlayButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Play"/>
+
+            </LinearLayout>
+
+            <!--Received Data Layout-->
+            <LinearLayout
+                android:id="@+id/receivedDataLayout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="Sound File"/>
+
+                    <TextView
+                        android:id="@+id/fileNameTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="Unselected"/>
+
+                    <Button
+                        android:id="@+id/audioFileSelectButton"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_margin="10dp"
+                        android:text="Select" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="end"
+                    android:text="*Please refer to the SDK manual for supported format."/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center"
+                        android:text="Volume"/>
+
+                    <Spinner
+                        android:id="@+id/receivedDataVolumeSpinner"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="end"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/receivedDataVolumeSeekBarContainer"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <SeekBar
+                        android:id="@+id/receivedDataVolumeSeekBar"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="10dp"
+                        android:max="15"/>
+
+                    <TextView
+                        android:id="@+id/receivedDataVolumeTextView"
+                        android:layout_width="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:text=""/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/receivedDataPlayButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Play"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

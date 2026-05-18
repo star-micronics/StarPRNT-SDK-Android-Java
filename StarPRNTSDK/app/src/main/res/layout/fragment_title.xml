@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:background="#FFFFFF"
+    tools:context=".TitleFragment">
+
+    <ImageView
+        android:id="@+id/starLogoImage"
+        android:contentDescription="Star logo for title page."
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:src="@drawable/launch_image"
+        android:layout_marginLeft="150dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="300dp" />
+    
+</RelativeLayout>

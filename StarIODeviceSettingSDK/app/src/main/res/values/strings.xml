@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">StarIODeviceSettingSDK</string>
+
+    <string-array name="spinner_array">
+        <item>Disable</item>
+        <item>iOS</item>
+        <item>Android</item>
+        <item>Windows</item>
+    </string-array>
+
+</resources>

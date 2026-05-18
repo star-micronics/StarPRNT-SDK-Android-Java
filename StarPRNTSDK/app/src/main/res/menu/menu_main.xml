@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/reloadIcon"
+        android:icon="@drawable/ic_refresh_white_24px"
+        android:title="Reload"
+        android:orderInCategory="0"
+        app:showAsAction="always" />
+
+</menu>

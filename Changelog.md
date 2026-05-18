@@ -1,3 +1,13 @@
+# Ver.5.20.1 (2026/04/24)
+
+## StarIO
+- Set minSdkVersion to StarIO.
+
+stario (Ver. 2.14.2)<br>
+starioextension (Ver. 1.17.0)<br>
+StarIODeviceSetting (Ver. 1.0.4)
+
+
 # Ver.5.20.0 (2025/05/19)
 
 ## StarIO
