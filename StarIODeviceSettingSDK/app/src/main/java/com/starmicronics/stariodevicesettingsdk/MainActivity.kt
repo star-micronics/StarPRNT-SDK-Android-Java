@@ -7,11 +7,9 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
-import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import com.starmicronics.stariodevicesetting.StarIODeviceSettingException
@@ -26,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val scope = CoroutineScope(Dispatchers.Default + job)
 
     companion object {
-        private const val BLUETOOTH_REQUEST_CODE = 1000
+        private const val PERMISSIONS_REQUEST_CODE = 1000
     }
 
     private lateinit var binding: ActivityMainBinding
@@ -81,12 +79,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // If you are using Android 12 and targetSdkVersion is 31 or later,
+        // If you are using Android 12 or later and targetSdkVersion is 31 or later,
         // you have to request Bluetooth permission (Nearby devices permission) to use the Bluetooth printer.
         // https://developer.android.com/about/versions/12/features/bluetooth-permissions
-        if (Build.VERSION_CODES.S <= Build.VERSION.SDK_INT) {
-            requestBluetoothPermission()
-        }
+
+        // If you are using Android 17 or later and target SdkVersion is 37 or later,
+        // you have to request ACCESS_LOCAL_NETWORK permission to use the LAN printer.
+        // https://developer.android.com/privacy-and-security/local-network-permission
+        requestRuntimePermissions()
     }
 
     private suspend fun showResultDialog(message: String?) {
@@ -112,18 +112,29 @@ class MainActivity : AppCompatActivity() {
         return versionName
     }
 
-    @RequiresApi(31)
-    private fun requestBluetoothPermission() {
-        if (baseContext.checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED ||
-            baseContext.checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_DENIED
-        ) {
-            requestPermissions(
-                arrayOf(
-                    Manifest.permission.BLUETOOTH_CONNECT,
-                    Manifest.permission.BLUETOOTH_SCAN
-                ),
-                BLUETOOTH_REQUEST_CODE
-            )
+    private fun requestRuntimePermissions() {
+        val permissions = mutableListOf<String>()
+
+        // Android 12 or later : Bluetooth
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (applicationContext.checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED) {
+                permissions.add(Manifest.permission.BLUETOOTH_CONNECT)
+            }
+
+            if (applicationContext.checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_DENIED) {
+                permissions.add(Manifest.permission.BLUETOOTH_SCAN)
+            }
+        }
+
+        // Android 17 or later : LAN
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            if (applicationContext.checkSelfPermission(Manifest.permission.ACCESS_LOCAL_NETWORK) == PackageManager.PERMISSION_DENIED) {
+                permissions.add(Manifest.permission.ACCESS_LOCAL_NETWORK)
+            }
+        }
+
+        if (permissions.isNotEmpty()) {
+            requestPermissions(permissions.toTypedArray(), PERMISSIONS_REQUEST_CODE)
         }
     }
 
@@ -133,11 +144,18 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == BLUETOOTH_REQUEST_CODE) {
-            if (grantResults.size == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                // Bluetooth permissions are granted.
-            } else {
-                val text = "You have to allow \"Nearby devices\" to use the Bluetooth printer"
+        if (requestCode == PERMISSIONS_REQUEST_CODE) {
+            var allGranted = true
+
+            for (result in grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false
+                    break
+                }
+            }
+
+            if (!allGranted) {
+                val text = "You have to check permissions to use the LAN / Bluetooth printer"
                 Toast.makeText(baseContext, text, Toast.LENGTH_LONG).show()
             }
         }

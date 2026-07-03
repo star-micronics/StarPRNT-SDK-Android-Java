@@ -1,3 +1,27 @@
+# Ver.5.20.2 (2026/06/30)
+
+## StarIO
+
+- Android17に対応
+- `ACCESS_LOCAL_NETWORK`権限がないときのLAN通信にて、`searchPrinter` / `getPort` APIが適切な例外メッセージを出力するように変更
+
+## StarIOExtension
+
+- Android17に対応
+
+## StarIODeviceSetting
+
+- Android17に対応
+
+## SDK
+
+- Android17に対応
+- `targetSdkVersion 37`で必須化された`ACCESS_LOCAL_NETWORK`権限に対応
+
+stario (Ver. 2.14.3)<br>
+starioextension (Ver. 1.17.1)<br>
+StarIODeviceSetting (Ver. 1.0.5)
+
 # Ver.5.20.1 (2026/04/24)
 
 ## StarIO
@@ -6,7 +30,6 @@
 stario (Ver. 2.14.2)<br>
 starioextension (Ver. 1.17.0)<br>
 StarIODeviceSetting (Ver. 1.0.4)
-
 
 # Ver 5.20.0 (2025/05/19)
 

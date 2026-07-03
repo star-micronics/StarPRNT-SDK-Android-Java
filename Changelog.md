@@ -1,3 +1,27 @@
+# Ver.5.20.2 (2026/06/30)
+
+## StarIO
+
+- Support Android 17.
+- Updated the `searchPrinter` / `getPort` APIs used for LAN communication to output an appropriate exception message when the `ACCESS_LOCAL_NETWORK` permission is not granted.
+
+## StarIOExtension
+
+- Support Android 17.
+
+## StarIODeviceSetting
+
+- Support Android 17.
+
+## SDK
+
+- Support Android 17.
+- Supported for the `ACCESS_LOCAL_NETWORK` permission, which becomes mandatory when targeting `targetSdkVersion 37`.
+
+stario (Ver. 2.14.3)<br>
+starioextension (Ver. 1.17.1)<br>
+StarIODeviceSetting (Ver. 1.0.5)
+
 # Ver.5.20.1 (2026/04/24)
 
 ## StarIO

@@ -42,4 +42,4 @@ StarIOPort3.1.jar V2.6.0 (StarPRNT SDK V5.11.0)より、releasePortメソッド�
 
 ## 著作権
 
-スター精密（株）Copyright 2016-2025
+スター精密（株）Copyright 2016-2026

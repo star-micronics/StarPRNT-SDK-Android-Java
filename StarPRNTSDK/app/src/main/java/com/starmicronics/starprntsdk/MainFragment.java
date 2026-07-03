@@ -43,7 +43,7 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
 
     private static final String LICENSE_DIALOG                       = "LicenseDialog";
 
-    private static final int BLUETOOTH_REQUEST_CODE = 1000;
+    private static final int PERMISSIONS_REQUEST_CODE = 1000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,12 +58,14 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // If you are using Android 12 and targetSdkVersion is 31 or later,
+        // If you are using Android 12 or later and targetSdkVersion is 31 or later,
         // you have to request Bluetooth permission (Nearby devices permission) to use the Bluetooth printer.
         // https://developer.android.com/about/versions/12/features/bluetooth-permissions
-        if (Build.VERSION_CODES.S <= Build.VERSION.SDK_INT) {
-            requestBluetoothPermission();
-        }
+
+        // If you are using Android 17 or later and target SdkVersion is 37 or later,
+        // you have to request ACCESS_LOCAL_NETWORK permission to use the LAN printer.
+        // https://developer.android.com/privacy-and-security/local-network-permission
+        requestRuntimePermissions();
     }
 
     @Override
@@ -364,28 +366,47 @@ public class MainFragment extends ItemListFragment implements CommonAlertDialogF
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == BLUETOOTH_REQUEST_CODE) {
-            if (grantResults.length == 2 &&
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED &&
-                    grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                // Bluetooth permissions are granted.
-            } else {
-                String text = "You have to allow \"Nearby devices\" to use the Bluetooth printer";
+        if (requestCode == PERMISSIONS_REQUEST_CODE) {
+            boolean allGranted = true;
+
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false;
+                    break;
+                }
+            }
+
+            if (!allGranted) {
+                String text = "You have to check permissions to use the LAN / Bluetooth printer";
                 Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
             }
         }
     }
 
-    @RequiresApi(31)
-    private void requestBluetoothPermission() {
-        if (getContext().checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED ||
-                getContext().checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_DENIED) {
+    private void requestRuntimePermissions() {
+        List<String> permissions = new ArrayList<>();
+
+        // Android 12 or later : Bluetooth
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (getContext().checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_DENIED) {
+                permissions.add(Manifest.permission.BLUETOOTH_CONNECT);
+            }
+
+            if (getContext().checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_DENIED) {
+                permissions.add(Manifest.permission.BLUETOOTH_SCAN);
+            }
+        }
+
+        // Android 17 or later : LAN
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN &&
+                getContext().checkSelfPermission(Manifest.permission.ACCESS_LOCAL_NETWORK) == PackageManager.PERMISSION_DENIED) {
+            permissions.add(Manifest.permission.ACCESS_LOCAL_NETWORK);
+        }
+
+        if (!permissions.isEmpty()) {
             requestPermissions(
-                    new String[]{
-                            Manifest.permission.BLUETOOTH_CONNECT,
-                            Manifest.permission.BLUETOOTH_SCAN,
-                    },
-                    BLUETOOTH_REQUEST_CODE
+                    permissions.toArray(new String[0]),
+                    PERMISSIONS_REQUEST_CODE
             );
         }
     }

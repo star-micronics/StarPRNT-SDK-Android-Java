@@ -2,28 +2,28 @@ plugins {
     id 'com.android.application'
 }
 android {
-    compileSdk 36
+    compileSdk = 37
     namespace "com.starmicronics.starprntsdk"
     defaultConfig {
         applicationId "com.StarMicronics.StarIOSDK"
 
         minSdkVersion 24
-        targetSdk 36
+        targetSdk 37
 
-        versionCode 78
-        versionName "5.20.1"
+        versionCode 79
+        versionName "5.20.2"
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
-    implementation 'com.starmicronics:stario:2.14.2'
-    implementation 'com.starmicronics:starioextension:1.17.0'
+    implementation 'com.starmicronics:stario:2.14.3'
+    implementation 'com.starmicronics:starioextension:1.17.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20"
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
